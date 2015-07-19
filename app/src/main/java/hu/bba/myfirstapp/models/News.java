@@ -3,8 +3,6 @@ package hu.bba.myfirstapp.models;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
-import java.util.Date;
-
 @Root(name = "item")
 public class News {
 
