@@ -7,19 +7,29 @@ import org.simpleframework.xml.Root;
 public class News {
 
     @Element(name = "title")
-    String name;
+    private String name;
 
     @Element(name = "pubDate")
-    String pubDate;
+    private String pubDate;
 
     @Element(name = "description")
-    String description;
+    private String description;
 
     @Element(name = "address")
-    String address;
+    private Address address;
 
     @Element(name = "image")
-    String image;
+    private Image image;
+
+    public News(String name, String pubDate, String description, Address address, Image image) {
+        this.name = name;
+        this.pubDate = pubDate;
+        this.description = description;
+        this.address = address;
+        this.image = image;
+    }
+
+    News() {}
 
     public String getName() {
         return name;
@@ -45,19 +55,19 @@ public class News {
         this.description = description;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
-    public String getImage() {
+    public Image getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Image image) {
         this.image = image;
     }
 

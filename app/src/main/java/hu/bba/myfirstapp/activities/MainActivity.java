@@ -1,18 +1,17 @@
 package hu.bba.myfirstapp.activities;
 
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.mobprofs.retrofit.converters.SimpleXmlConverter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import hu.bba.myfirstapp.R;
@@ -28,13 +27,14 @@ import retrofit.client.Response;
 public class MainActivity extends AppCompatActivity {
 
     List<News> news;
+    private ArrayAdapter<News> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // SimpleXML
+        // SimpleXML - Retrofit
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint("http://t.aff.hu/")
                 .setConverter(new SimpleXmlConverter())
@@ -42,10 +42,13 @@ public class MainActivity extends AppCompatActivity {
 
         ApiServices apiService = restAdapter.create(ApiServices.class);
 
+
+        news = new ArrayList<>();
         Callback<NewsResponse> callback = new Callback<NewsResponse>() {
             @Override
             public void success(NewsResponse newsResponse, Response response) {
                 news = newsResponse.getNewsList();
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -56,69 +59,17 @@ public class MainActivity extends AppCompatActivity {
 
         apiService.getNewsResponse(callback);
 
-        ListAdapter adapter = new ListAdapter() {
-            @Override
-            public boolean areAllItemsEnabled() {
-                return false;
-            }
-
-            @Override
-            public boolean isEnabled(int position) {
-                return false;
-            }
-
-            @Override
-            public void registerDataSetObserver(DataSetObserver observer) {
-
-            }
-
-            @Override
-            public void unregisterDataSetObserver(DataSetObserver observer) {
-
-            }
-
-            @Override
-            public int getCount() {
-                return 0;
-            }
-
-            @Override
-            public Object getItem(int position) {
-                return null;
-            }
-
-            @Override
-            public long getItemId(int position) {
-                return 0;
-            }
-
-            @Override
-            public boolean hasStableIds() {
-                return false;
-            }
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                return null;
-            }
-
-            @Override
-            public int getItemViewType(int position) {
-                return 0;
-            }
-
-            @Override
-            public int getViewTypeCount() {
-                return 0;
-            }
-
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
-        };
-
         ListView myListView = (ListView) findViewById(R.id.main_listView);
+
+        // TODO - try this method
+        // public void success(List<User> users, Response response) {
+        //  this is called in main thread so it's ok to update views
+        //  mUsersAdapter.clear();
+        //  mUsersAdapter.addAll(users);
+        // }
+
+        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, news);
+        myListView.setAdapter(adapter);
 
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
