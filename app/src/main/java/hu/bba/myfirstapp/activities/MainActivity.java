@@ -42,13 +42,17 @@ public class MainActivity extends AppCompatActivity {
 
         ApiServices apiService = restAdapter.create(ApiServices.class);
 
-
         news = new ArrayList<>();
         Callback<NewsResponse> callback = new Callback<NewsResponse>() {
             @Override
             public void success(NewsResponse newsResponse, Response response) {
                 news = newsResponse.getNewsList();
-                adapter.notifyDataSetChanged();
+
+                adapter.clear();
+                adapter.addAll(news);
+
+                //not necessary
+                //adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -61,16 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
         ListView myListView = (ListView) findViewById(R.id.main_listView);
 
-        // TODO - try this method
-        // public void success(List<User> users, Response response) {
-        //  this is called in main thread so it's ok to update views
-        //  mUsersAdapter.clear();
-        //  mUsersAdapter.addAll(users);
-        // }
-
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, news);
         myListView.setAdapter(adapter);
 
+        // TODO - Make the list items clickable, lead to new DetailsActivity
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
