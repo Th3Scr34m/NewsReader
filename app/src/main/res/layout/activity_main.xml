@@ -1,7 +1,8 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <ListView
@@ -9,4 +10,14 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"></ListView>
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/main_textView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></TextView>
+
+    <ImageView
+        android:id="@+id/main_imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>

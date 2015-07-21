@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hu.bba.myfirstapp.R;
+import hu.bba.myfirstapp.adapters.CustomLayoutAdapter;
 import hu.bba.myfirstapp.models.News;
 import hu.bba.myfirstapp.models.NewsResponse;
 import hu.bba.myfirstapp.services.ApiServices;
@@ -28,7 +29,7 @@ import retrofit.client.Response;
 public class MainActivity extends AppCompatActivity {
 
     List<News> news;
-    private ArrayAdapter<News> adapter;
+    private CustomLayoutAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
             public void success(NewsResponse newsResponse, Response response) {
                 news = newsResponse.getNewsList();
 
-                adapter.clear();
-                adapter.addAll(news);
+                adapter.initList(news);
 
                 //not necessary
                 //adapter.notifyDataSetChanged();
@@ -66,10 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
         ListView myListView = (ListView) findViewById(R.id.main_listView);
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, news);
+        adapter = new CustomLayoutAdapter();
         myListView.setAdapter(adapter);
-
-        // TODO - Make the list items clickable, lead to new DetailsActivity
 
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
