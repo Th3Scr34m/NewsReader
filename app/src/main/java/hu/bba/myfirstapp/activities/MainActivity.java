@@ -75,8 +75,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                CharSequence selection = News.getDescription();
-                String selection = parent.getItemAtPosition(position).toString();
-                Toast.makeText(MainActivity.this, selection, Toast.LENGTH_LONG).show();
+//                String selection = parent.getItemAtPosition(position).toString();
+//                Toast.makeText(MainActivity.this, selection, Toast.LENGTH_LONG).show();
+                if (position == 1) {
+
+                    Intent myIntent = new Intent(MainActivity.this, DetailsActivity.class);
+                    startActivityForResult(myIntent, 0);
+                }
+
+                if (position == 2) {
+
+                    Intent myIntent = new Intent(MainActivity.this, DetailsActivity.class);
+                    startActivityForResult(myIntent, 0);
+                }
             }
 
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
