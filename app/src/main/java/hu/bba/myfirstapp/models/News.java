@@ -13,6 +13,7 @@ public class News {
     private String pubDate;
 
     @Element(name = "description")
+//    private static String description;
     private String description;
 
     @Element(name = "address")
@@ -29,7 +30,8 @@ public class News {
         this.image = image;
     }
 
-    News() {}
+    News() {
+    }
 
     public String getName() {
         return name;
@@ -50,6 +52,10 @@ public class News {
     public String getDescription() {
         return description;
     }
+
+//    public static String getDescription() {
+//        return description;
+//    }
 
     public void setDescription(String description) {
         this.description = description;

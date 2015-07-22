@@ -8,10 +8,10 @@
         <item name="android:colorPrimary">@color/app_colorprimary</item>-->
     </style>
 
-    <!-- Splash screen style
-    <style name="splashScreenTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_screen</item>
+    <!-- Splash screen style-->
+    <style name="splashScreenTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@mipmap/splash_screen</item>
     </style>
-    -->
+
 
 </resources>

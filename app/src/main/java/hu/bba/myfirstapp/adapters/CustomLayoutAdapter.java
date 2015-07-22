@@ -86,8 +86,8 @@ public class CustomLayoutAdapter extends BaseAdapter {
             // holder.image.
             Picasso.with(parent.getContext())
                     .load(news.getImage().getUrl())
-                    .placeholder(R.drawable.placeholder)
-                    .error(R.drawable.placeholder_err)
+                    .placeholder(R.mipmap.placeholder)
+                    .error(R.mipmap.placeholder_err)
                     .into(holder.image);
         }
         return vi;

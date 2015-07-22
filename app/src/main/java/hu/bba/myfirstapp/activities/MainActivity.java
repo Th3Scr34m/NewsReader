@@ -1,5 +1,6 @@
 package hu.bba.myfirstapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -29,6 +30,7 @@ import retrofit.client.Response;
 public class MainActivity extends AppCompatActivity {
 
     List<News> news;
+
     private CustomLayoutAdapter adapter;
 
     @Override
@@ -72,9 +74,22 @@ public class MainActivity extends AppCompatActivity {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                CharSequence selection = News.getDescription();
                 String selection = parent.getItemAtPosition(position).toString();
                 Toast.makeText(MainActivity.this, selection, Toast.LENGTH_LONG).show();
             }
+
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                switch( position )
+//                {
+//                    case 0:  Intent newActivity_1 = new Intent(this, MainActivity.class);
+//                        startActivity(newActivity_1);
+//                        break;
+//                    case 1:  Intent newActivity_2 = new Intent(this, DetailsActivity.class);
+//                        startActivity(newActivity_2);
+//                        break;
+//                }
+//            }
         });
     }
 

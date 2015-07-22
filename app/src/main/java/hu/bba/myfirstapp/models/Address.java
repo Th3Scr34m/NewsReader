@@ -33,7 +33,8 @@ public class Address {
         this.number = number;
     }
 
-    Address() {}
+    Address() {
+    }
 
     public String getCountry() {
         return country;
@@ -85,7 +86,6 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address{ " + "country=" + country + ", zip=" + zip + ", city=" + city + ", street="
-                + street + ", streetType=" + streetType + ", number=" + number + "}";
+        return country + " " + zip + " " + city + " " + street + " " + streetType + " " + number;
     }
 }
