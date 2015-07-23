@@ -15,8 +15,8 @@
     <TextView
         android:id="@+id/description"
         android:layout_width="250dp"
-        android:layout_height="260dp"
-        android:layout_gravity="center_horizontal|bottom"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
         android:autoLink="web"
         android:textSize="12dp"
         android:textStyle="bold" />
