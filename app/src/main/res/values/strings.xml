@@ -4,7 +4,4 @@
     <string name="error">Error</string>
     <string name="d_image">downloaded image</string>
     <string name="img">image</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -8,9 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import com.mobprofs.retrofit.converters.SimpleXmlConverter;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import hu.bba.myfirstapp.R;
 import hu.bba.myfirstapp.adapters.CustomLayoutAdapter;
 import hu.bba.myfirstapp.models.News;

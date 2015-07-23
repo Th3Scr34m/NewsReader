@@ -9,14 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
-import java.util.List;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.models.News;
 
 public class DetailsFragment extends Fragment {
 
@@ -30,8 +25,7 @@ public class DetailsFragment extends Fragment {
     }
 
     public static DetailsFragment newInstance() {
-        DetailsFragment fragment = new DetailsFragment();
-        return fragment;
+        return new DetailsFragment();
     }
 
     @Override

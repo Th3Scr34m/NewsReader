@@ -29,7 +29,7 @@ public class DetailsActivity extends AppCompatActivity {
         viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                return DetailsFragment.newInstance(0, "");
+                return DetailsFragment.newInstance();
             }
 
             @Override
@@ -37,18 +37,6 @@ public class DetailsActivity extends AppCompatActivity {
                 return 10;
             }
         });
-
-
-        // Description
-//        News news = (News) getIntent().getSerializableExtra("News");
-//        description.setText(news.getDescription());
-//
-//        // Image
-//        Picasso.with(getApplicationContext())
-//                .load(news.getImage().getUrl())
-//                .placeholder(R.mipmap.placeholder)
-//                .error(R.mipmap.placeholder_err)
-//                .into(image);
     }
 
     @Override
