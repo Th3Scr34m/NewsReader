@@ -2,7 +2,6 @@ package hu.bba.myfirstapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -80,7 +79,10 @@ public class MainActivity extends AppCompatActivity {
 //                String selection = parent.getItemAtPosition(position).toString();
 //                Toast.makeText(MainActivity.this, selection, Toast.LENGTH_LONG).show();
 
-                Intent myIntent = new Intent();
+
+                Intent myIntent = new Intent(MainActivity.this, DetailsActivity.class);
+//                myIntent.putExtra("position", position);
+                myIntent.putExtra("News", news.get(position));
                 startActivity(myIntent);
             }
         });

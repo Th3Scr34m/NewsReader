@@ -3,8 +3,10 @@ package hu.bba.myfirstapp.models;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
 
+import java.io.Serializable;
+
 @Root()
-public class Address {
+public class Address implements Serializable {
 
     @Attribute(name = "country")
     private String country;

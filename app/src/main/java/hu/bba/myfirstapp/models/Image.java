@@ -3,8 +3,10 @@ package hu.bba.myfirstapp.models;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
 
+import java.io.Serializable;
+
 @Root()
-public class Image {
+public class Image implements Serializable {
 
     @Attribute(name = "url", required = false)
     private String url;

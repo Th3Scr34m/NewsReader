@@ -3,8 +3,10 @@ package hu.bba.myfirstapp.models;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
+import java.io.Serializable;
+
 @Root(name = "item")
-public class News {
+public class News implements Serializable {
 
     @Element(name = "title")
     private String name;
