@@ -2,6 +2,7 @@ package hu.bba.myfirstapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.mobprofs.retrofit.converters.SimpleXmlConverter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,30 +79,10 @@ public class MainActivity extends AppCompatActivity {
 //                CharSequence selection = News.getDescription();
 //                String selection = parent.getItemAtPosition(position).toString();
 //                Toast.makeText(MainActivity.this, selection, Toast.LENGTH_LONG).show();
-                if (position == 1) {
 
-                    Intent myIntent = new Intent(MainActivity.this, DetailsActivity.class);
-                    startActivityForResult(myIntent, 0);
-                }
-
-                if (position == 2) {
-
-                    Intent myIntent = new Intent(MainActivity.this, DetailsActivity.class);
-                    startActivityForResult(myIntent, 0);
-                }
+                Intent myIntent = new Intent();
+                startActivity(myIntent);
             }
-
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                switch( position )
-//                {
-//                    case 0:  Intent newActivity_1 = new Intent(this, MainActivity.class);
-//                        startActivity(newActivity_1);
-//                        break;
-//                    case 1:  Intent newActivity_2 = new Intent(this, DetailsActivity.class);
-//                        startActivity(newActivity_2);
-//                        break;
-//                }
-//            }
         });
     }
 
