@@ -1,13 +1,24 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context="hu.bba.myfirstapp.fragments.DetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="24dp" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/description"
+        android:layout_width="250dp"
+        android:layout_height="260dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:autoLink="web"
+        android:textSize="12dp"
+        android:textStyle="bold" />
 
 </FrameLayout>

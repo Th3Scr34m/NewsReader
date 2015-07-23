@@ -7,16 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import com.mobprofs.retrofit.converters.SimpleXmlConverter;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import hu.bba.myfirstapp.R;
 import hu.bba.myfirstapp.adapters.CustomLayoutAdapter;
 import hu.bba.myfirstapp.models.News;
