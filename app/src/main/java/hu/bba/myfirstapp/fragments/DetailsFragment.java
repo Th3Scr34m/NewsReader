@@ -7,48 +7,64 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
+import java.awt.font.TextAttribute;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import hu.bba.myfirstapp.R;
+import hu.bba.myfirstapp.activities.DetailsActivity;
+import hu.bba.myfirstapp.models.News;
 
 public class DetailsFragment extends Fragment {
 
+
+    private static final String ARG_NEWS = "newsParam";
     @Bind(R.id.description)
     TextView description;
-
     @Bind(R.id.image)
     ImageView image;
+    private News news;
 
     public DetailsFragment() {
     }
 
-    public static DetailsFragment newInstance() {
-        return new DetailsFragment();
+    public static DetailsFragment newInstance(News news) {
+        DetailsFragment fragment = new DetailsFragment();
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_NEWS, news);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            news = (News) getArguments().getSerializable(ARG_NEWS);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_details, container, false);
         ButterKnife.bind(this, view);
 
-        // TODO - Make to work with descriptions and images as well
-        description.setText("Fragment is working with ViewPager.");
 //        // Description
-//        description.setText(news.getDescription());
-//
+        description.setText(news.getDescription());
+
 //        // Image
-//        Picasso.with(getActivity())
-//                .load(news.getImage().getUrl())
-//                .placeholder(R.mipmap.placeholder)
-//                .error(R.mipmap.placeholder_err)
-//                .into(image);
+        Picasso.with(getActivity())
+                .load(news.getImage().getUrl())
+                .placeholder(R.mipmap.placeholder)
+                .error(R.mipmap.placeholder_err)
+                .into(image);
 
         return view;
     }

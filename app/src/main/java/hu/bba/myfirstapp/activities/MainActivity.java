@@ -49,11 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void success(NewsResponse newsResponse, Response response) {
                 news = newsResponse.getNewsList();
-
                 adapter.initList(news);
-
-                //not necessary
-                //adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -72,15 +68,10 @@ public class MainActivity extends AppCompatActivity {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                CharSequence selection = News.getDescription();
-//                String selection = parent.getItemAtPosition(position).toString();
-//                Toast.makeText(MainActivity.this, selection, Toast.LENGTH_LONG).show();
-
 
                 Intent myIntent = new Intent(MainActivity.this, DetailsActivity.class);
-//                myIntent.putExtra("position", position);
                 myIntent.putExtra("News", news);
-                myIntent.putExtra("postition", position);
+                myIntent.putExtra("Position", position);
                 startActivity(myIntent);
             }
         });
@@ -88,19 +79,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }

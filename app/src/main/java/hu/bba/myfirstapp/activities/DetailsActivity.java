@@ -31,7 +31,7 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_layout);
 
-        int pos = getIntent().getIntExtra("position", 0);
+        int pos = getIntent().getIntExtra("Position", 0);
         news = (ArrayList<News>) getIntent().getSerializableExtra("News");
 
 
@@ -39,7 +39,7 @@ public class DetailsActivity extends AppCompatActivity {
         viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                return DetailsFragment.newInstance();
+                return DetailsFragment.newInstance(news.get(position));
             }
 
             @Override
