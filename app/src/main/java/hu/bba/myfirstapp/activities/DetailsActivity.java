@@ -47,6 +47,8 @@ public class DetailsActivity extends AppCompatActivity {
                 return news.size();
             }
         });
+
+        viewPager.setCurrentItem(pos);
     }
 
     @Override
