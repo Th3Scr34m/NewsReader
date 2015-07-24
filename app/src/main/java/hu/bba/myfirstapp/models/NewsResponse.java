@@ -4,19 +4,20 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Root(name = "content")
 public class NewsResponse implements Serializable {
 
     @ElementList(inline = true)
-    List<News> newsList;
+    ArrayList<News> newsList;
 
-    public List<News> getNewsList() {
+    public ArrayList<News> getNewsList() {
         return newsList;
     }
 
-    public void setNewsList(List<News> newsList) {
+    public void setNewsList(ArrayList<News> newsList) {
         this.newsList = newsList;
     }
 }

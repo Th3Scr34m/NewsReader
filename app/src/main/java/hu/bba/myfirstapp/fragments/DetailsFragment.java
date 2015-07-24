@@ -39,7 +39,6 @@ public class DetailsFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         // TODO - Make to work with descriptions and images as well
-        // NOTE - Why 10 pages available when only 7 news are available?
         description.setText("Fragment is working with ViewPager.");
 //        // Description
 //        description.setText(news.getDescription());

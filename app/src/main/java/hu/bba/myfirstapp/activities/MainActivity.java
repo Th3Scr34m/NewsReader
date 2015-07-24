@@ -27,7 +27,7 @@ import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<News> news;
+    ArrayList<News> news;
 
     private CustomLayoutAdapter adapter;
 
@@ -79,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent myIntent = new Intent(MainActivity.this, DetailsActivity.class);
 //                myIntent.putExtra("position", position);
-                myIntent.putExtra("News", news.get(position));
+                myIntent.putExtra("News", news);
+                myIntent.putExtra("postition", position);
                 startActivity(myIntent);
             }
         });

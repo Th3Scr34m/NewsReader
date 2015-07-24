@@ -1,24 +1,15 @@
 package hu.bba.myfirstapp.adapters;
 
-import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-
 import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.activities.MainActivity;
-import hu.bba.myfirstapp.models.Image;
 import hu.bba.myfirstapp.models.News;
 
 public class CustomLayoutAdapter extends BaseAdapter {
@@ -28,6 +19,10 @@ public class CustomLayoutAdapter extends BaseAdapter {
 
     public CustomLayoutAdapter() {
         super();
+    }
+
+    public static int getSize(List<News> newsList) {
+        return newsList.size();
     }
 
     public void initList(List<News> newsList) {

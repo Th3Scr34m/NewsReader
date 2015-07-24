@@ -9,13 +9,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import hu.bba.myfirstapp.R;
+import hu.bba.myfirstapp.adapters.CustomLayoutAdapter;
 import hu.bba.myfirstapp.fragments.DetailsFragment;
+import hu.bba.myfirstapp.models.News;
 
 public class DetailsActivity extends AppCompatActivity {
 
+    ArrayList<News> news;
 
     @Bind(R.id.details_viewpager)
     ViewPager viewPager;
@@ -24,6 +30,10 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_layout);
+
+        int pos = getIntent().getIntExtra("position", 0);
+        news = (ArrayList<News>) getIntent().getSerializableExtra("News");
+
 
         ButterKnife.bind(this);
         viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
@@ -34,7 +44,7 @@ public class DetailsActivity extends AppCompatActivity {
 
             @Override
             public int getCount() {
-                return 10;
+                return news.size();
             }
         });
     }
