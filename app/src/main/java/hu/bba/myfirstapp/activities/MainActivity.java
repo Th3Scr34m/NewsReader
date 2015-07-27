@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBarToolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(ActionBarToolbar);
-        getSupportActionBar().setTitle("Home");
+        getSupportActionBar().setTitle("Main Page");
 
         ListView myListView = (ListView) findViewById(R.id.main_listView);
 
@@ -81,22 +81,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

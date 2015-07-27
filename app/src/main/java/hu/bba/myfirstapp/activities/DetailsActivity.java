@@ -41,7 +41,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         DetailsActionBarToolbar = (Toolbar) findViewById(R.id.details_toolbar);
         setSupportActionBar(DetailsActionBarToolbar);
-        getSupportActionBar().setTitle("DetailsPage");
+        getSupportActionBar().setTitle("Details Page");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.details_toolbar);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);

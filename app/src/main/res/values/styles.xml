@@ -3,6 +3,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:textColorSecondary">@android:color/white</item>
+        <!--<item name="android:background">#ff2ab9ff</item>-->
 
         <!--   your app branding color for the app bar -->
         <item name="colorPrimary">#3F51B5</item>

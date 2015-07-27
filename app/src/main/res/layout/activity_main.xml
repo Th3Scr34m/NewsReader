@@ -11,7 +11,7 @@
         android:id="@+id/main_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ff4f4f51"
+        android:background="#fff74a4a"
         android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
     <ListView
@@ -20,6 +20,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:divider="#ffeeffee"
-        android:dividerHeight="1dp"></ListView>
+        android:dividerHeight="1dp"
+        android:background="#ff208cc1"></ListView>
 
 </LinearLayout>
