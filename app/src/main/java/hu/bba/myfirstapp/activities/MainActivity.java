@@ -3,6 +3,7 @@ package hu.bba.myfirstapp.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,7 @@ import retrofit.client.Response;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<News> news;
+    Toolbar ActionBarToolbar;
 
     private CustomLayoutAdapter adapter;
 
@@ -59,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         };
 
         apiService.getNewsResponse(callback);
+
+        ActionBarToolbar = (Toolbar) findViewById(R.id.main_toolbar);
+        setSupportActionBar(ActionBarToolbar);
+        getSupportActionBar().setTitle("Home");
 
         ListView myListView = (ListView) findViewById(R.id.main_listView);
 

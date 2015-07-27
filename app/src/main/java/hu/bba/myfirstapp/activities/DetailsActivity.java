@@ -1,10 +1,12 @@
 package hu.bba.myfirstapp.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -22,6 +24,7 @@ import hu.bba.myfirstapp.models.News;
 public class DetailsActivity extends AppCompatActivity {
 
     ArrayList<News> news;
+    Toolbar DetailsActionBarToolbar;
 
     @Bind(R.id.details_viewpager)
     ViewPager viewPager;
@@ -34,8 +37,20 @@ public class DetailsActivity extends AppCompatActivity {
         int pos = getIntent().getIntExtra("Position", 0);
         news = (ArrayList<News>) getIntent().getSerializableExtra("News");
 
-
         ButterKnife.bind(this);
+
+        DetailsActionBarToolbar = (Toolbar) findViewById(R.id.details_toolbar);
+        setSupportActionBar(DetailsActionBarToolbar);
+        getSupportActionBar().setTitle("DetailsPage");
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.details_toolbar);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.details_viewpager);
+
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
+
         viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -46,7 +61,14 @@ public class DetailsActivity extends AppCompatActivity {
             public int getCount() {
                 return news.size();
             }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return news.get(position).getName();
+            }
         });
+
+        tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setCurrentItem(pos);
     }

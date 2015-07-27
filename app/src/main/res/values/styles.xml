@@ -1,15 +1,20 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar"></style>
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">#3F51B5</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">#303F9F</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">#ff1eff30</item>
+    </style>
 
     <!-- Splash screen style-->
     <style name="splashScreenTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@mipmap/splash_screen</item>
-    </style>
-
-    <style name="AppTheme_Details" parent="Theme.AppCompat">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
 </resources>

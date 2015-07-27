@@ -3,26 +3,22 @@ package hu.bba.myfirstapp.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.awt.font.TextAttribute;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.activities.DetailsActivity;
 import hu.bba.myfirstapp.models.News;
 
 public class DetailsFragment extends Fragment {
-
 
     private static final String ARG_NEWS = "newsParam";
     @Bind(R.id.description)
@@ -55,6 +51,7 @@ public class DetailsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_details, container, false);
         ButterKnife.bind(this, view);
+
 
 //        // Description
         description.setText(news.getDescription());
