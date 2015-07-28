@@ -1,14 +1,12 @@
 package hu.bba.myfirstapp.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,7 +14,6 @@ import com.melnykov.fab.FloatingActionButton;
 import com.mobprofs.retrofit.converters.SimpleXmlConverter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import hu.bba.myfirstapp.R;
 import hu.bba.myfirstapp.adapters.CustomLayoutAdapter;
@@ -28,18 +25,20 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<News> news;
-    Toolbar ActionBarToolbar;
-
+    private ArrayList<News> news;
+    private Toolbar ActionBarToolbar;
     private CustomLayoutAdapter adapter;
+    private CharSequence text = "The newsfeed is not available";
+    private int duration = Toast.LENGTH_LONG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final Context activityContext = this;
 
         // SimpleXML - Retrofit
         RestAdapter restAdapter = new RestAdapter.Builder()
@@ -59,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void failure(RetrofitError retrofitError) {
-
+                Toast toast = Toast.makeText(activityContext, text, duration);
+                toast.show();
             }
         };
 

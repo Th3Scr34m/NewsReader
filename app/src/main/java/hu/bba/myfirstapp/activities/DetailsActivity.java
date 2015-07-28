@@ -10,24 +10,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
 import java.util.ArrayList;
-import java.util.List;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.adapters.CustomLayoutAdapter;
 import hu.bba.myfirstapp.fragments.DetailsFragment;
 import hu.bba.myfirstapp.models.News;
 
 public class DetailsActivity extends AppCompatActivity {
 
-    ArrayList<News> news;
-    Toolbar DetailsActionBarToolbar;
-
-    @Bind(R.id.details_viewpager)
-    ViewPager viewPager;
+    private ArrayList<News> news;
+    private Toolbar DetailsActionBarToolbar;
+//
+//    @Bind(R.id.details_viewpager)
+//    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +65,6 @@ public class DetailsActivity extends AppCompatActivity {
         });
 
         tabLayout.setupWithViewPager(viewPager);
-
         viewPager.setCurrentItem(pos);
     }
 

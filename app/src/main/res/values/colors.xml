@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ColorPrimary">#ff5b7078</color>
-    <color name="ColorPrimaryDark">#ff2e4478</color>
+    <color name="PageBackground">#ff353535</color>
+    <color name="ListViewBackground">#ff3c3c3b</color>
+    <color name="ViewPagerPrimary">#ff165376</color>
+    <color name="ListViewDivider">#ffeeffee</color>
+    <color name="ToolbarPrimary">#fff74a4a</color>
+    <color name="ToolbarPrimaryDark">#ff902c2c</color>
+    <color name="TabPrimary">#ffe8c35f</color>
+    <color name="TabPrimaryDark">#ff8a743b</color>
+    <color name="FloatingButtonColorPrimary">#ffcb6529</color>
+    <color name="FloatingButtonColorPrimaryDark">#ff97501c</color>
     <color name="Ripple">#ff0f2578</color>
 </resources>

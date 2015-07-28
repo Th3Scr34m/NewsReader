@@ -4,7 +4,7 @@
 
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:background="#ff353535"
+    android:background="@color/PageBackground"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -13,23 +13,23 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
-        android:id="@+id/main_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff74a4a"
-        android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/ToolbarPrimary"
+            android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
 
-    <ListView
-        android:id="@+id/main_listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="#ff208cc1"
-        android:divider="#ffeeffee"
-        android:dividerHeight="1dp"></ListView>
+        <ListView
+            android:id="@+id/main_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/ListViewBackground"
+            android:divider="@color/ListViewDivider"
+            android:dividerHeight="1dp"></ListView>
 
-</LinearLayout>
+    </LinearLayout>
 
     <com.melnykov.fab.FloatingActionButton
         android:id="@+id/fab"
@@ -38,8 +38,7 @@
         android:layout_gravity="bottom|center_horizontal"
         android:layout_margin="16dp"
         android:src="@drawable/ic_action_content_new"
-        fab:fab_colorNormal="@color/ColorPrimary"
-        fab:fab_colorPressed="@color/ColorPrimaryDark" />
-    <!--fab:fab_colorRipple="@color/Ripple" -->
+        fab:fab_colorNormal="@color/FloatingButtonColorPrimary"
+        fab:fab_colorPressed="@color/FloatingButtonColorPrimaryDark" />
 
 </FrameLayout>

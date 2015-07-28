@@ -6,8 +6,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.squareup.picasso.Picasso;
+
 import java.util.List;
+
 import hu.bba.myfirstapp.R;
 import hu.bba.myfirstapp.models.News;
 
@@ -77,20 +80,20 @@ public class CustomLayoutAdapter extends BaseAdapter {
             holder.text.setText(news.getName());
             holder.date.setText(news.getPubDate());
             holder.address.setText(news.getAddress().toString());
-            // holder.image.
+
             Picasso.with(parent.getContext())
                     .load(news.getImage().getUrl())
-                    .placeholder(R.mipmap.placeholder)
-                    .error(R.mipmap.placeholder_err)
+                    .placeholder(R.drawable.placeholder)
+                    .error(R.drawable.placeholder_err)
                     .into(holder.image);
         }
         return vi;
     }
 
     public static class ViewHolder {
-        public TextView text;
-        public TextView date;
-        public TextView address;
-        public ImageView image;
+        protected TextView text;
+        protected TextView date;
+        protected TextView address;
+        protected ImageView image;
     }
 }

@@ -3,7 +3,6 @@ package hu.bba.myfirstapp.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -52,15 +50,11 @@ public class DetailsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_details, container, false);
         ButterKnife.bind(this, view);
 
-
-//        // Description
         description.setText(news.getDescription());
-
-//        // Image
         Picasso.with(getActivity())
                 .load(news.getImage().getUrl())
-                .placeholder(R.mipmap.placeholder)
-                .error(R.mipmap.placeholder_err)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.placeholder_err)
                 .into(image);
 
         return view;

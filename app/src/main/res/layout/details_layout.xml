@@ -9,25 +9,25 @@
         android:id="@+id/details_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff74a4a"
+        android:background="@color/ToolbarPrimary"
         android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffe8c35f"
-        app:tabMode="scrollable"
+        android:background="@color/TabPrimary"
+        android:minHeight="12dp"
+        android:textAlignment="center"
         app:tabMaxWidth="68dp"
         app:tabMinWidth="68dp"
-        android:minHeight="12dp"
-        android:textAlignment="center" />
+        app:tabMode="scrollable" />
 
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/details_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ff208cc1" />
+        android:background="@color/ViewPagerPrimary" />
 
 </LinearLayout>
 

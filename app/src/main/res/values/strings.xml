@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">ScolvoTest Android</string>
-    <string name="action_settings">Settings</string>
-    <string name="error">Error</string>
-    <string name="d_image">downloaded image</string>
-    <string name="img">image</string>
+    <string name="app_name">Scolvo Test Application</string>
+    <string name="img">Image</string>
+    <string name="title">Please add a title here</string>
+    <string name="news_desc">Please write here news description</string>
+    <string name="caption">Please write here pictures caption</string>
 </resources>
