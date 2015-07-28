@@ -8,8 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.melnykov.fab.FloatingActionButton;
 import com.mobprofs.retrofit.converters.SimpleXmlConverter;
 
 import java.util.ArrayList;
@@ -67,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Main Page");
 
         ListView myListView = (ListView) findViewById(R.id.main_listView);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.attachToListView(myListView);
 
         adapter = new CustomLayoutAdapter();
         myListView.setAdapter(adapter);

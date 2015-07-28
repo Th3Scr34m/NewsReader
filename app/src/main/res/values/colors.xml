@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="app_colorprimary">#ff2e4478</color>
-    <color name="textview_font_color">#ff3e5478</color>
+    <color name="ColorPrimary">#ff5b7078</color>
+    <color name="ColorPrimaryDark">#ff2e4478</color>
+    <color name="Ripple">#ff0f2578</color>
 </resources>
