@@ -21,9 +21,6 @@ public class DetailsActivity extends AppCompatActivity {
 
     private ArrayList<News> news;
     private Toolbar DetailsActionBarToolbar;
-//
-//    @Bind(R.id.details_viewpager)
-//    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
