@@ -120,12 +120,25 @@ public class MainActivity extends AppCompatActivity {
         adapter = new CustomLayoutAdapterForJson();
         myListView.setAdapter(adapter);
 
+        // To XML
+//        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                Intent myIntent = new Intent(MainActivity.this, DetailsActivity.class);
+//                myIntent.putExtra("News", news);
+//                myIntent.putExtra("Position", position);
+//                startActivity(myIntent);
+//            }
+//        });
+
+        // To Json
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent myIntent = new Intent(MainActivity.this, DetailsActivity.class);
-                myIntent.putExtra("News", news);
+                Intent myIntent = new Intent(MainActivity.this, DetailsActivityForJson.class);
+                myIntent.putExtra("Content", contentImage);
                 myIntent.putExtra("Position", position);
                 startActivity(myIntent);
             }

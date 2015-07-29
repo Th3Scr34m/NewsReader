@@ -2,7 +2,9 @@ package hu.bba.myfirstapp.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ContentImage {
+import java.io.Serializable;
+
+public class ContentImage implements Serializable {
 
     @SerializedName("width")
     public int imageWidth;

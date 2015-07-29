@@ -11,8 +11,8 @@ public interface ApiServices {
     @GET("/exam/")
     void getNewsResponse(Callback<NewsResponse> callback);
 
-//    To Json
-@GET("/images?v=1.0&q=counter%20strike/")
-void getContentImageDataResponse(Callback<ContentImageDataResponse> callback);
+    //    To Json
+    @GET("/images?v=1.0&q=scolvo/")
+    void getContentImageDataResponse(Callback<ContentImageDataResponse> callback);
 
 }
