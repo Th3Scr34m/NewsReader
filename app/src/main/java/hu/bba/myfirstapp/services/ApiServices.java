@@ -6,6 +6,12 @@ import retrofit.http.GET;
 
 public interface ApiServices {
 
+    //    To XML
     @GET("/exam/")
     void getNewsResponse(Callback<NewsResponse> callback);
+
+//    To Json
+//    @GET("/images?v=1.0&q=fuzzy%20monkey/")
+//    void getContentImageDataResponse(Callback<ContentImageDataResponse> callback);
+
 }

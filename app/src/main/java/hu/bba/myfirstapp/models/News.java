@@ -15,7 +15,6 @@ public class News implements Serializable {
     private String pubDate;
 
     @Element(name = "description")
-//    private static String description;
     private String description;
 
     @Element(name = "address")

@@ -27,11 +27,15 @@ import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static CharSequence text = "The newsfeed is not available";
+    private static int duration = Toast.LENGTH_LONG;
     private ArrayList<News> news;
     private Toolbar ActionBarToolbar;
+    // To XML
     private CustomLayoutAdapter adapter;
-    private CharSequence text = "The newsfeed is not available";
-    private int duration = Toast.LENGTH_LONG;
+
+//    // To Json
+//    private CustomLayoutAdapterForJson adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Context activityContext = this;
 
-        // SimpleXML - Retrofit
+        // SimpleXML - Retrofit - to XML
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint("http://aff-test.azurewebsites.net/")
                 .setConverter(new SimpleXmlConverter())
@@ -61,9 +65,39 @@ public class MainActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(activityContext, text, duration);
                 toast.show();
             }
+
+//        // Gson - Retrofit - to JSON
+//        Gson gson = new GsonBuilder()
+//                .create();
+
+//        RestAdapter restAdapter = new RestAdapter.Builder()
+//                .setEndpoint("https://ajax.googleapis.com/ajax/services/search/")
+//                .setConverter(new GsonConverter(gson))
+//                .build();
+//
+//        ApiServices apiService = restAdapter.create(ApiServices.class);
+//
+//        contentImage = new List<>();
+
+//        Callback<NewsResponse> callback = new Callback<ContentImageDataResponse>() {
+//            @Override
+//            public void success(ContentImageDataResponse contentImageDataResponse, Response response) {
+//                contentImage = contentImageDataResponse.getResultList().getImageList();
+//                adapter.initList(contentImage);
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError retrofitError) {
+//                Toast toast = Toast.makeText(activityContext, text, duration);
+//                toast.show();
+//            }
         };
 
+//        To XML
         apiService.getNewsResponse(callback);
+
+//        // To Json
+//        apiService.getContentImageDataResponse(callback);
 
         ActionBarToolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(ActionBarToolbar);
@@ -73,8 +107,13 @@ public class MainActivity extends AppCompatActivity {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.attachToListView(myListView);
 
+        // To XML
         adapter = new CustomLayoutAdapter();
         myListView.setAdapter(adapter);
+
+        // To Json
+//        adapter = new CustomLayoutAdapterForJson();
+//        myListView.setAdapter(adapter);
 
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
