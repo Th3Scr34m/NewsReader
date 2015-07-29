@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         // SimpleXML - Retrofit
         RestAdapter restAdapter = new RestAdapter.Builder()
-                .setEndpoint("http://t.aff.hu/")
+                .setEndpoint("http://aff-test.azurewebsites.net/")
                 .setConverter(new SimpleXmlConverter())
                 .build();
 
