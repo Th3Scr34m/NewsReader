@@ -22,16 +22,16 @@ public class ContentImage {
     @SerializedName("imageId")
     public String imageId;
 
-    @SerializedName("title")
+    @SerializedName("titleNoFormatting")
     public String formattedTitle;
 
-    @SerializedName("titleNoFormatting")
+    @SerializedName("title")
     public String unformattedTitle;
 
-    @SerializedName("content")
+    @SerializedName("contentNoFormatting")
     public String formattedContent;
 
-    @SerializedName("contentNoFormatting")
+    @SerializedName("content")
     public String unformattedContent;
 
     @SerializedName("url")
