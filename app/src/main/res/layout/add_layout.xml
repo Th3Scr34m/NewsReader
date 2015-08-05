@@ -5,63 +5,117 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/details_toolbar"
+        android:id="@+id/add_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/ToolbarPrimary"
-        android:minHeight="?attr/actionBarSize">
+        android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
-    </android.support.v7.widget.Toolbar>
-
-    <android.support.design.widget.TextInputLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/add_title"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/title" />
-    </android.support.design.widget.TextInputLayout>
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/add_image"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/add_a_margin_big"
+                android:layout_marginRight="@dimen/add_a_margin_big"
+                android:padding="@dimen/add_a_padding_small">
 
-    <Button
-        android:id="@+id/add_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Take a photo" />
+                <EditText
+                    android:id="@+id/add_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title"
+                    android:inputType="textShortMessage" />
+            </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/add_a_margin_big"
+                android:layout_marginRight="@dimen/add_a_margin_big"
+                android:padding="@dimen/add_a_padding_small">
 
-        <EditText
-            android:id="@+id/add_caption"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/caption" />
-    </android.support.design.widget.TextInputLayout>
+                <EditText
+                    android:id="@+id/add_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/news_desc" />
+            </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/add_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/add_desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/news_desc" />
-    </android.support.design.widget.TextInputLayout>
+                <Button
+                    android:id="@+id/add_date_button"
+                    android:layout_width="@dimen/add_date_button"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/add_a_margin_bigger"
+                    android:layout_marginTop="@dimen/add_a_margin_small"
+                    android:text="@string/add_date_button" />
 
-    <TextView
-        android:id="@+id/add_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/add_date_text_view"
+                    android:layout_width="@dimen/add_date_button"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/add_a_margin_small"
+                    android:layout_marginTop="@dimen/add_a_margin_small"
+                    android:text="@string/date_label" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/add_image"
+                android:layout_width="@dimen/add_a_image_size"
+                android:layout_height="@dimen/add_a_image_size"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/add_a_margin_big"
+                android:layout_marginTop="@dimen/add_a_margin_bigger"
+                android:onClick="takePhoto"
+                android:src="@drawable/photo_placeholder" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/add_a_margin_big"
+                android:layout_marginRight="@dimen/add_a_margin_big"
+                android:padding="@dimen/add_a_padding_small">
+
+                <EditText
+                    android:id="@+id/add_caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/caption"
+                    android:inputType="textShortMessage" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/add_a_margin_big"
+                android:layout_marginRight="@dimen/add_a_margin_big"
+                android:padding="@dimen/add_a_padding_small">
+
+                <EditText
+                    android:id="@+id/add_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

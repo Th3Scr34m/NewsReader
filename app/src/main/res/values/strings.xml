@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Scolvo Test Application</string>
     <string name="img">Image</string>
-    <string name="title">Please add a title here</string>
-    <string name="news_desc">Please write here news description</string>
-    <string name="caption">Please write here pictures caption</string>
+    <string name="title">Please add here this news title.</string>
+    <string name="news_desc">Please write here this news description.</string>
+    <string name="caption">Please write here the taken pictures caption.</string>
+    <string name="email">Please write here your e-mail address.</string>
+    <string name="add_date_button">Pick a date</string>
+    <string name="date_label">Date comes here.</string>
 </resources>

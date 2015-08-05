@@ -33,8 +33,8 @@ public class DetailsActivityForJson extends AppCompatActivity {
         ButterKnife.bind(this);
 
         DetailsActionBarToolbar = (Toolbar) findViewById(R.id.details_toolbar);
+        DetailsActionBarToolbar.setTitle("Details Page");
         setSupportActionBar(DetailsActionBarToolbar);
-        getSupportActionBar().setTitle("Details Page");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.details_toolbar);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);

@@ -12,7 +12,7 @@ public interface ApiServices {
     void getNewsResponse(Callback<NewsResponse> callback);
 
     //    To Json
-    @GET("/images?v=1.0&q=scolvo/")
+    @GET("/images?v=1.0&q=android/")
     void getContentImageDataResponse(Callback<ContentImageDataResponse> callback);
 
 }

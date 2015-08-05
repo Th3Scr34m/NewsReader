@@ -16,6 +16,9 @@ import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import hu.bba.myfirstapp.R;
 import hu.bba.myfirstapp.adapters.CustomLayoutAdapterForJson;
 import hu.bba.myfirstapp.models.ContentImage;
@@ -32,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
 
     private static CharSequence text = "The newsfeed is not available";
     private static int duration = Toast.LENGTH_LONG;
+    @Bind(R.id.main_toolbar)
+    Toolbar toolbar;
     private ArrayList<News> news;
     private ArrayList<ContentImage> contentImage;
-    private Toolbar ActionBarToolbar;
 
 //    // To XML
 //    private CustomLayoutAdapter adapter;
-
     // To Json
     private CustomLayoutAdapterForJson adapter;
 
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ButterKnife.bind(this);
         final Context activityContext = this;
 
 //        // SimpleXML - Retrofit - to XML
@@ -104,9 +108,8 @@ public class MainActivity extends AppCompatActivity {
         // To Json
         apiService.getContentImageDataResponse(callback);
 
-        ActionBarToolbar = (Toolbar) findViewById(R.id.main_toolbar);
-        setSupportActionBar(ActionBarToolbar);
-        getSupportActionBar().setTitle("Main Page");
+        toolbar.setTitle("Main Page");
+        setSupportActionBar(toolbar);
 
         ListView myListView = (ListView) findViewById(R.id.main_listView);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -136,12 +139,24 @@ public class MainActivity extends AppCompatActivity {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent myIntent = new Intent(MainActivity.this, DetailsActivityForJson.class);
-                myIntent.putExtra("Content", contentImage);
-                myIntent.putExtra("Position", position);
-                startActivity(myIntent);
+                Intent toDetailsIntent = new Intent(MainActivity.this, DetailsActivityForJson.class);
+                toDetailsIntent.putExtra("Content", contentImage);
+                toDetailsIntent.putExtra("Position", position);
+                startActivity(toDetailsIntent);
             }
         });
     }
+
+    @OnClick(R.id.fab)
+    public void onClick(View view) {
+        Intent toAddIntent = new Intent(MainActivity.this, AddActivity.class);
+        startActivity(toAddIntent);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);
+    }
+
 }
