@@ -4,8 +4,8 @@
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:textColorSecondary">@android:color/darker_gray</item>
         <item name="colorPrimary">#fff</item>
-        <item name="colorPrimaryDark">#303F9F</item>
-        <item name="colorAccent">#fff</item>
+        <item name="colorAccent">#0277BD</item>
+        <item name="colorPrimaryDark">#039BE5</item>
     </style>
 
     <style name="splashScreenTheme" parent="Theme.AppCompat.NoActionBar">

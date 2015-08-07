@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 .create();
 
         RestAdapter restAdapter = new RestAdapter.Builder()
-                .setEndpoint("https://ajax.googleapis.com/ajax/services/search/")
+//                .setEndpoint("https://ajax.googleapis.com/ajax/services/search/")
+                .setEndpoint("http://focusoptika.eu/focusftp/")
                 .setConverter(new GsonConverter(gson))
                 .build();
 
