@@ -1,63 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="120dp"
+    android:layout_height="@dimen/custom_layout_height"
+    android:orientation="horizontal"
     android:gravity="center"
-    android:orientation="horizontal">
+    android:baselineAligned="false">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="120dp"
-        android:layout_weight="3"
+        android:layout_width="@dimen/custom_layout_width"
+        android:layout_height="@dimen/custom_layout_height"
+        android:padding="@dimen/custom_layout_padding"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:layout_weight="3" >
 
         <TextView
-            android:id="@+id/text"
-            android:layout_width="255dp"
-            android:layout_height="50dp"
-            android:layout_margin="2dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:layout_marginTop="6dp"
-            android:textSize="7pt"
+            android:id="@+id/title"
+            android:layout_width="@dimen/custom_textbox_width"
+            android:layout_height="@dimen/custom_textbox_height_title"
+            android:layout_margin="@dimen/custom_textbox_margin"
+            android:layout_marginLeft="@dimen/custom_textbox_margin_c"
+            android:layout_marginRight="@dimen/custom_textbox_margin_c"
+            android:layout_marginTop="@dimen/custom_textbox_margin_c"
+            android:textSize="@dimen/custom_textbox_text_size_title"
             android:textStyle="italic" />
 
         <TextView
-            android:id="@+id/date"
-            android:layout_width="200dp"
-            android:layout_height="20dp"
-            android:layout_margin="2dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:textSize="4pt" />
+            android:id="@+id/link"
+            android:layout_width="@dimen/custom_textbox_width"
+            android:layout_height="@dimen/custom_textbox_height_link"
+            android:layout_margin="@dimen/custom_textbox_margin"
+            android:layout_marginLeft="@dimen/custom_textbox_margin_c"
+            android:layout_marginRight="@dimen/custom_textbox_margin_c"
+            android:textSize="@dimen/custom_textbox_text_size_link" />
 
         <TextView
-            android:id="@+id/address"
-            android:layout_width="245dp"
-            android:layout_height="30dp"
-            android:layout_margin="2dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:textSize="5pt"
+            android:id="@+id/desc"
+            android:layout_width="@dimen/custom_textbox_width"
+            android:layout_height="@dimen/custom_textbox_height_desc"
+            android:layout_margin="@dimen/custom_textbox_margin"
+            android:layout_marginLeft="@dimen/custom_textbox_margin_c"
+            android:layout_marginRight="@dimen/custom_textbox_margin_c"
+            android:textSize="@dimen/custom_textbox_text_size_desc"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:padding="5dp">
+        android:layout_height="@dimen/custom_layout_image_height"
+        android:padding="@dimen/custom_layout_padding">
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="6dp"
-            android:layout_marginTop="6dp"
-            android:clickable="true"
+            android:layout_width="@dimen/custom_layout_image_width"
+            android:layout_height="@dimen/custom_layout_image_height"
+            android:layout_marginTop="@dimen/custom_textbox_margin_c"
+            android:layout_marginBottom="@dimen/custom_textbox_margin_c"
             android:contentDescription="@string/img"
+            android:layout_gravity="center_horizontal|center"
             android:scaleType="fitCenter" />
 
     </LinearLayout>

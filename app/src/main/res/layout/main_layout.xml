@@ -27,7 +27,7 @@
             android:layout_gravity="center"
             android:background="@color/ListViewBackground"
             android:divider="@color/ListViewDivider"
-            android:dividerHeight="1dp"></ListView>
+            android:dividerHeight="@dimen/divider_height"></ListView>
 
     </LinearLayout>
 
@@ -36,8 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_action_content_new"
+        android:layout_margin="@dimen/main_fab_margin"
+        android:src="@drawable/fab_icon"
         fab:fab_colorNormal="@color/FloatingButtonColorPrimary"
         fab:fab_colorPressed="@color/FloatingButtonColorPrimaryDark" />
 

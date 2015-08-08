@@ -60,7 +60,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
 
     public void takePhoto(View view) {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        File photo = new File(Environment.getExternalStorageDirectory(), "Pic.jpg");
+        File photo = new File(Environment.getExternalStorageDirectory(), "image.jpg");
         intent.putExtra(MediaStore.EXTRA_OUTPUT,
                 Uri.fromFile(photo));
         imageUri = Uri.fromFile(photo);

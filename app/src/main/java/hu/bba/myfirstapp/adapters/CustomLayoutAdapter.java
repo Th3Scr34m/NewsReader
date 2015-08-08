@@ -12,22 +12,22 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.models.News;
+import hu.bba.myfirstapp.models.Content;
 
 public class CustomLayoutAdapter extends BaseAdapter {
 
     private static LayoutInflater inflater = null;
-    private List<News> newsList;
+    private List<Content> newsList;
 
     public CustomLayoutAdapter() {
         super();
     }
 
-    public static int getSize(List<News> newsList) {
+    public static int getSize(List<Content> newsList) {
         return newsList.size();
     }
 
-    public void initList(List<News> newsList) {
+    public void initList(List<Content> newsList) {
         this.newsList = newsList;
         notifyDataSetChanged();
     }
@@ -40,7 +40,7 @@ public class CustomLayoutAdapter extends BaseAdapter {
     }
 
     @Override
-    public News getItem(int position) {
+    public Content getItem(int position) {
         if (newsList == null)
             return null;
         return newsList.get(position);
@@ -57,16 +57,16 @@ public class CustomLayoutAdapter extends BaseAdapter {
         View vi = convertView;
         ViewHolder holder;
 
-        News news = getItem(position);
+        Content content = getItem(position);
 
         if (convertView == null) {
             inflater = LayoutInflater.from(parent.getContext());
             vi = inflater.inflate(R.layout.cutsom_layout, parent, false);
 
             holder = new ViewHolder();
-            holder.text = (TextView) vi.findViewById(R.id.text);
-            holder.date = (TextView) vi.findViewById(R.id.date);
-            holder.address = (TextView) vi.findViewById(R.id.address);
+            holder.title = (TextView) vi.findViewById(R.id.title);
+            holder.link = (TextView) vi.findViewById(R.id.link);
+            holder.desc = (TextView) vi.findViewById(R.id.desc);
             holder.image = (ImageView) vi.findViewById(R.id.image);
 
             vi.setTag(holder);
@@ -74,15 +74,15 @@ public class CustomLayoutAdapter extends BaseAdapter {
             holder = (ViewHolder) vi.getTag();
 
         if (newsList.size() <= 0) {
-            holder.text.setText("No Data");
+            holder.title.setText("No Data");
         } else {
 
-            holder.text.setText(news.getName());
-            holder.date.setText(news.getPubDate());
-            holder.address.setText(news.getAddress().toString());
+            holder.title.setText(content.getFormattedTitle());
+            holder.link.setText(content.getVisibleUrl());
+            holder.desc.setText(content.getFormattedContent());
 
             Picasso.with(parent.getContext())
-                    .load(news.getImage().getUrl())
+                    .load(content.getThumbnailUrl())
                     .placeholder(R.drawable.placeholder)
                     .error(R.drawable.placeholder_err)
                     .into(holder.image);
@@ -91,9 +91,9 @@ public class CustomLayoutAdapter extends BaseAdapter {
     }
 
     public static class ViewHolder {
-        protected TextView text;
-        protected TextView date;
-        protected TextView address;
+        protected TextView title;
+        protected TextView link;
+        protected TextView desc;
         protected ImageView image;
     }
 }

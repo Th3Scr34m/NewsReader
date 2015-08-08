@@ -7,4 +7,6 @@
     <string name="email">Please write here your e-mail address.</string>
     <string name="add_date_button">Pick a date</string>
     <string name="date_label">Date comes here.</string>
+    <string name="main_feed_unavailable">The newsfeed is not available</string>
+    <string name="api_endpoint">http://focusoptika.eu/focusftp/</string>
 </resources>

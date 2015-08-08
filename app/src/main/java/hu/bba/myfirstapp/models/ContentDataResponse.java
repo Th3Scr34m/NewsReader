@@ -3,7 +3,7 @@ package hu.bba.myfirstapp.models;
 import com.google.gson.annotations.SerializedName;
 
 
-public class ContentImageDataResponse {
+public class ContentDataResponse {
 
     @SerializedName("responseData")
     ContentImageResult resultList;

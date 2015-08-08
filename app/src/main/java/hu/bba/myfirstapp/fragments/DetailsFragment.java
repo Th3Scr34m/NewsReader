@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.models.News;
+import hu.bba.myfirstapp.models.Content;
 
 public class DetailsFragment extends Fragment {
 
@@ -23,15 +23,16 @@ public class DetailsFragment extends Fragment {
     TextView description;
     @Bind(R.id.image)
     ImageView image;
-    private News news;
+
+    private Content content;
 
     public DetailsFragment() {
     }
 
-    public static DetailsFragment newInstance(News news) {
+    public static DetailsFragment newInstance(Content content) {
         DetailsFragment fragment = new DetailsFragment();
         Bundle args = new Bundle();
-        args.putSerializable(ARG_NEWS, news);
+        args.putSerializable(ARG_NEWS, content);
         fragment.setArguments(args);
         return fragment;
     }
@@ -40,19 +41,19 @@ public class DetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            news = (News) getArguments().getSerializable(ARG_NEWS);
+            content = (Content) getArguments().getSerializable(ARG_NEWS);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_details, container, false);
+        View view = inflater.inflate(R.layout.fragment_details_layout, container, false);
         ButterKnife.bind(this, view);
 
-        description.setText(news.getDescription());
+        description.setText(content.getFormattedContent());
         Picasso.with(getActivity())
-                .load(news.getImage().getUrl())
+                .load(content.getFormattedUrl())
                 .placeholder(R.drawable.placeholder)
                 .error(R.drawable.placeholder_err)
                 .into(image);

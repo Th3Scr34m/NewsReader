@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="PageBackground">#e1f3fa</color>
-    <color name="ListViewBackground">#7a95ab</color>
-    <color name="ViewPagerPrimary">#81D4FA</color>
-    <color name="ListViewDivider">#4FC3F7</color>
-    <color name="ToolbarPrimary">#29B6F6</color>
-    <color name="ToolbarPrimaryDark">#03A9F4</color>
-    <color name="TabPrimary">#039BE5</color>
-    <color name="TabPrimaryDark">#0288D1</color>
-    <color name="FloatingButtonColorPrimary">#0277BD</color>
-    <color name="FloatingButtonColorPrimaryDark">#01579B</color>
-    <color name="Ripple">#ff0f2578</color>
-    <color name="mdtp_accent_color">#80D8FF</color>
-    <color name="mdtp_accent_color_dark">#40C4FF</color>
     <color name="simple_white">#fff</color>
+    <color name="PageBackground">#e1f3fa</color>
+    <color name="ListViewBackground">#616161</color>
+    <color name="ViewPagerPrimary">#616161</color>
+    <color name="ListViewDivider">#F9A825</color>
+    <color name="ToolbarPrimary">#FBC02D</color>
+    <color name="ToolbarPrimaryDark">#F9A825</color>
+    <color name="TabPrimary">#FBC02D</color>
+    <color name="TabPrimaryDark">#F9A825</color>
+    <color name="FloatingButtonColorPrimary">#FBC02D</color>
+    <color name="FloatingButtonColorPrimaryDark">#F9A825</color>
+    <color name="Ripple">#F57F17</color>
+    <color name="mdtp_accent_color">#FBC02D</color>
+    <color name="mdtp_accent_color_dark">#F9A825</color>
 </resources>

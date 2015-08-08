@@ -7,13 +7,13 @@ import java.util.ArrayList;
 public class ContentImageResult {
 
     @SerializedName("results")
-    ArrayList<ContentImage> imageList;
+    ArrayList<Content> imageList;
 
-    public ArrayList<ContentImage> getImageList() {
+    public ArrayList<Content> getImageList() {
         return imageList;
     }
 
-    public void setImageList(ArrayList<ContentImage> imageList) {
+    public void setImageList(ArrayList<Content> imageList) {
         this.imageList = imageList;
     }
 }

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class ContentImage implements Serializable {
+public class Content implements Serializable {
 
     @SerializedName("width")
     public int imageWidth;
@@ -51,14 +51,14 @@ public class ContentImage implements Serializable {
     @SerializedName("tbUrl")
     public String thumbnailUrl;
 
-    ContentImage() {
+    Content() {
     }
 
-    public ContentImage(int imageWidth, int imageHeight, int imageThumbnailWidth,
-                        int imageThumbnailHeight, String searchResult, String imageId,
-                        String formattedTitle, String unformattedTitle, String formattedContent,
-                        String unformattedContent, String formattedUrl, String unformattedUrl,
-                        String originalContextUrl, String visibleUrl, String thumbnailUrl) {
+    public Content(int imageWidth, int imageHeight, int imageThumbnailWidth,
+                   int imageThumbnailHeight, String searchResult, String imageId,
+                   String formattedTitle, String unformattedTitle, String formattedContent,
+                   String unformattedContent, String formattedUrl, String unformattedUrl,
+                   String originalContextUrl, String visibleUrl, String thumbnailUrl) {
         this.imageWidth = imageWidth;
         this.imageHeight = imageHeight;
         this.imageThumbnailWidth = imageThumbnailWidth;

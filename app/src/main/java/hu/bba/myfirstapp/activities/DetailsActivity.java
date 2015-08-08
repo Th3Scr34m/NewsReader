@@ -15,11 +15,11 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import hu.bba.myfirstapp.R;
 import hu.bba.myfirstapp.fragments.DetailsFragment;
-import hu.bba.myfirstapp.models.News;
+import hu.bba.myfirstapp.models.Content;
 
 public class DetailsActivity extends AppCompatActivity {
 
-    private ArrayList<News> news;
+    private ArrayList<Content> content;
     private Toolbar DetailsActionBarToolbar;
 
     @Override
@@ -28,13 +28,13 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.details_layout);
 
         int pos = getIntent().getIntExtra("Position", 0);
-        news = (ArrayList<News>) getIntent().getSerializableExtra("News");
+        content = (ArrayList<Content>) getIntent().getSerializableExtra("Content");
 
         ButterKnife.bind(this);
 
         DetailsActionBarToolbar = (Toolbar) findViewById(R.id.details_toolbar);
+        DetailsActionBarToolbar.setTitle("Details Page");
         setSupportActionBar(DetailsActionBarToolbar);
-        getSupportActionBar().setTitle("Details Page");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.details_toolbar);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -47,17 +47,17 @@ public class DetailsActivity extends AppCompatActivity {
         viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                return DetailsFragment.newInstance(news.get(position));
+                return DetailsFragment.newInstance(content.get(position));
             }
 
             @Override
             public int getCount() {
-                return news.size();
+                return content.size();
             }
 
             @Override
             public CharSequence getPageTitle(int position) {
-                return news.get(position).getName();
+                return content.get(position).getFormattedTitle();
             }
         });
 
