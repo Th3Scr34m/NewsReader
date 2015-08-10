@@ -14,13 +14,13 @@
         <dimen name="activity_horizontal_margin">20dp</dimen>
         <dimen name="activity_vertical_margin">20dp</dimen>
     <!-- Custom -->
-        <dimen name="custom_layout_width">0dp</dimen>
+        <dimen name="custom_layout_width">250dp</dimen>
         <dimen name="custom_layout_height">120dp</dimen>
         <dimen name="custom_layout_padding">5dp</dimen>
         <dimen name="custom_textbox_width">255dp</dimen>
         <dimen name="custom_textbox_height_title">25dp</dimen>
         <dimen name="custom_textbox_height_link">25dp</dimen>
-        <dimen name="custom_textbox_height_desc">50dp</dimen>
+        <dimen name="custom_textbox_height_desc">40dp</dimen>
         <dimen name="custom_textbox_margin">2dp</dimen>
         <dimen name="custom_textbox_margin_c">6dp</dimen>
         <dimen name="custom_textbox_text_size_title">6pt</dimen>

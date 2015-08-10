@@ -11,7 +11,8 @@
         android:background="@color/ToolbarPrimary"
         android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
-    <ScrollView
+    <hu.bba.myfirstapp.models.ScrollViewExt
+        android:id="@+id/add_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -33,6 +34,8 @@
                     android:id="@+id/add_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/add_a_margin_big"
+                    android:layout_marginLeft="@dimen/add_a_margin_big"
                     android:hint="@string/title"
                     android:inputType="textShortMessage" />
             </android.support.design.widget.TextInputLayout>
@@ -48,34 +51,29 @@
                     android:id="@+id/add_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/add_a_margin_big"
+                    android:layout_marginLeft="@dimen/add_a_margin_big"
                     android:hint="@string/news_desc" />
             </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
-                android:id="@+id/add_date"
+            <Button
+                android:id="@+id/add_date_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/add_a_margin_big"
+                android:layout_marginRight="@dimen/add_a_margin_big"
+                android:padding="@dimen/add_a_padding_small"
+                android:text="@string/add_date_button" />
+
+            <TextView
+                android:id="@+id/add_date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/add_date_button"
-                    android:layout_width="@dimen/add_date_button"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/add_a_margin_bigger"
-                    android:layout_marginTop="@dimen/add_a_margin_small"
-                    android:text="@string/add_date_button" />
-
-                <TextView
-                    android:id="@+id/add_date_text_view"
-                    android:layout_width="@dimen/add_date_button"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/add_a_margin_small"
-                    android:layout_marginTop="@dimen/add_a_margin_small"
-                    android:text="@string/date_label" />
-            </LinearLayout>
+                android:layout_marginLeft="@dimen/add_a_margin_small"
+                android:layout_marginTop="@dimen/add_a_margin_small"
+                android:text="@string/date_label" />
 
             <ImageView
                 android:id="@+id/add_image"
@@ -98,6 +96,8 @@
                     android:id="@+id/add_caption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/add_a_margin_big"
+                    android:layout_marginLeft="@dimen/add_a_margin_big"
                     android:hint="@string/caption"
                     android:inputType="textShortMessage" />
             </android.support.design.widget.TextInputLayout>
@@ -113,9 +113,21 @@
                     android:id="@+id/add_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/add_a_margin_big"
+                    android:layout_marginLeft="@dimen/add_a_margin_big"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/add_a_margin_big"
+                android:layout_marginRight="@dimen/add_a_margin_big"
+                android:padding="@dimen/add_a_padding_small"
+                android:text="@string/save_button"/>
         </LinearLayout>
-    </ScrollView>
+    </hu.bba.myfirstapp.models.ScrollViewExt>
 </LinearLayout>

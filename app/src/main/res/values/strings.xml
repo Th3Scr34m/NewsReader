@@ -9,4 +9,7 @@
     <string name="date_label">Date comes here.</string>
     <string name="main_feed_unavailable">The newsfeed is not available</string>
     <string name="api_endpoint">http://focusoptika.eu/focusftp/</string>
+    <string name="save_button">Save</string>
+    <string name="save_success_text">Tap on the button to save this item.</string>
+    <string name="save_success_text_onclick">Item saved</string>
 </resources>

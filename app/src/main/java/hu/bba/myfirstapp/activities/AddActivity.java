@@ -2,6 +2,7 @@ package hu.bba.myfirstapp.activities;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -17,20 +18,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nispok.snackbar.Snackbar;
+import com.nispok.snackbar.SnackbarManager;
+import com.nispok.snackbar.listeners.ActionClickListener;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.io.File;
 import java.util.Calendar;
 
 import hu.bba.myfirstapp.R;
+import hu.bba.myfirstapp.interfaces.ScrollViewListener;
+import hu.bba.myfirstapp.models.ScrollViewExt;
 
-public class AddActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class AddActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, ScrollViewListener {
 
     private static final int TAKE_PICTURE = 1;
-    private Toolbar toolbar;
-    private Uri imageUri;
-    private Button addDate;
-    private TextView dateTextView;
+    private static Toolbar toolbar;
+    private static Uri imageUri;
+    private static Button addDate;
+    private static TextView dateTextView;
+    private static ScrollViewExt scroll;
+    private static final String TAG = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +49,13 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         toolbar.setTitle("Add Page");
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         addDate = (Button) findViewById(R.id.add_date_button);
+
+        scroll = (ScrollViewExt) findViewById(R.id.add_scrollview);
+        scroll.setScrollViewListener(this);
 
         addDate.setOnClickListener(new View.OnClickListener() {
 
@@ -101,4 +115,26 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         dateTextView.setText(date);
     }
 
+    @Override
+    public void onScrollChanged(ScrollViewExt scrollView, int x, int y, int oldx, int oldy) {
+        View view = scrollView.getChildAt(scrollView.getChildCount() - 1);
+        int diff = (view.getBottom() - (scrollView.getHeight() + scrollView.getScrollY()));
+
+        if (diff == 0) {
+            SnackbarManager.show(
+                    Snackbar.with(getApplicationContext())
+                            .text(String.format(getString(R.string.save_success_text)))
+                            .actionLabel(String.format(getString(R.string.save_button)))
+                            .actionListener(new ActionClickListener() {
+                                @Override
+                                public void onActionClicked(Snackbar snackbar) {
+                                    Log.d(TAG, String.format(getString(R.string.save_success_text_onclick)));
+                                }
+                            })
+                    , this);
+        }
+        else {
+            SnackbarManager.dismiss();
+        }
+    }
 }
