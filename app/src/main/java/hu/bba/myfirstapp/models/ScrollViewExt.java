@@ -2,7 +2,6 @@ package hu.bba.myfirstapp.models;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.ScrollView;
 
 import hu.bba.myfirstapp.interfaces.ScrollViewListener;

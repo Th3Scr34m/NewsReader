@@ -1,7 +1,7 @@
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:textColorPrimary">@color/simple_white</item>
-        <item name="android:textColorSecondary">@color/ListViewDivider</item>
+        <item name="android:textColorSecondary">@color/listview_divider</item>
         <item name="colorPrimary">@color/simple_white</item>
         <item name="colorAccent">@color/mdtp_accent_color</item>
         <item name="colorPrimaryDark">@color/mdtp_accent_color_dark</item>
@@ -9,9 +9,13 @@
 
     <style name="splashScreenTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:textColorSecondary">@color/listview_divider</item>
+        <item name="colorPrimary">@color/simple_white</item>
+        <item name="colorAccent">@color/mdtp_accent_color</item>
+        <item name="colorPrimaryDark">@color/mdtp_accent_color_dark</item>
     </style>
 
     <style name="datePickerStyle" parent="@android:style/Widget.DeviceDefault.DatePicker">
-        <item name="android:background">@color/ListViewBackground</item>
+        <item name="android:background">@color/listview_background</item>
     </style>
 </resources>

@@ -6,6 +6,7 @@
         <dimen name="add_a_padding_small">5dp</dimen>
         <dimen name="add_a_padding_big">15dp</dimen>
         <dimen name="add_a_margin_small">5dp</dimen>
+        <dimen name="add_a_margin_medium">10dp</dimen>
         <dimen name="add_a_margin_b">10dp</dimen>
         <dimen name="add_a_margin_big">15dp</dimen>
         <dimen name="add_a_margin_bigger">40dp</dimen>

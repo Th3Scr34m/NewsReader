@@ -4,7 +4,7 @@
 
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:background="@color/PageBackground"
+    android:background="@color/page_background"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -16,7 +16,7 @@
             android:id="@+id/main_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/ToolbarPrimary"
+            android:background="@color/toolbar_primary"
             android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
 
@@ -25,8 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:background="@color/ListViewBackground"
-            android:divider="@color/ListViewDivider"
+            android:background="@color/listview_background"
+            android:divider="@color/listview_divider"
             android:dividerHeight="@dimen/divider_height"></ListView>
 
     </LinearLayout>
@@ -38,7 +38,7 @@
         android:layout_gravity="bottom|right"
         android:layout_margin="@dimen/main_fab_margin"
         android:src="@drawable/fab_icon"
-        fab:fab_colorNormal="@color/FloatingButtonColorPrimary"
-        fab:fab_colorPressed="@color/FloatingButtonColorPrimaryDark" />
+        fab:fab_colorNormal="@color/fab_primary"
+        fab:fab_colorPressed="@color/fab_primary_dark" />
 
 </FrameLayout>

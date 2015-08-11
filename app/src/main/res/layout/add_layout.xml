@@ -8,7 +8,7 @@
         android:id="@+id/add_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/ToolbarPrimary"
+        android:background="@color/toolbar_primary"
         android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
     <hu.bba.myfirstapp.models.ScrollViewExt
@@ -26,8 +26,8 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/add_a_margin_big"
-                android:layout_marginRight="@dimen/add_a_margin_big"
+                android:layout_marginLeft="@dimen/add_a_margin_medium"
+                android:layout_marginRight="@dimen/add_a_margin_medium"
                 android:padding="@dimen/add_a_padding_small">
 
                 <EditText
@@ -43,16 +43,14 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/add_a_margin_big"
-                android:layout_marginRight="@dimen/add_a_margin_big"
+                android:layout_marginLeft="@dimen/add_a_margin_medium"
+                android:layout_marginRight="@dimen/add_a_margin_medium"
                 android:padding="@dimen/add_a_padding_small">
 
                 <EditText
                     android:id="@+id/add_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/add_a_margin_big"
-                    android:layout_marginLeft="@dimen/add_a_margin_big"
                     android:hint="@string/news_desc" />
             </android.support.design.widget.TextInputLayout>
 
@@ -88,8 +86,8 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/add_a_margin_big"
-                android:layout_marginRight="@dimen/add_a_margin_big"
+                android:layout_marginLeft="@dimen/add_a_margin_medium"
+                android:layout_marginRight="@dimen/add_a_margin_medium"
                 android:padding="@dimen/add_a_padding_small">
 
                 <EditText
@@ -105,9 +103,10 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/add_a_margin_big"
-                android:layout_marginRight="@dimen/add_a_margin_big"
-                android:padding="@dimen/add_a_padding_small">
+                android:layout_marginLeft="@dimen/add_a_margin_medium"
+                android:layout_marginRight="@dimen/add_a_margin_medium"
+                android:padding="@dimen/add_a_padding_small"
+                android:paddingBottom="48dp">
 
                 <EditText
                     android:id="@+id/add_email"
@@ -118,16 +117,10 @@
                     android:hint="@string/email"
                     android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
-
-            <Button
-                android:id="@+id/save_button"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginLeft="@dimen/add_a_margin_big"
-                android:layout_marginRight="@dimen/add_a_margin_big"
-                android:padding="@dimen/add_a_padding_small"
-                android:text="@string/save_button"/>
+                android:padding="24dp"/>
         </LinearLayout>
     </hu.bba.myfirstapp.models.ScrollViewExt>
 </LinearLayout>

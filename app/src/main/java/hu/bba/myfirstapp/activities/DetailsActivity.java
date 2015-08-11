@@ -19,6 +19,8 @@ import hu.bba.myfirstapp.models.Content;
 
 public class DetailsActivity extends AppCompatActivity {
 
+    private static final String TAG = DetailsActivity.class.getSimpleName();
+
     private ArrayList<Content> content;
     private Toolbar DetailsActionBarToolbar;
 

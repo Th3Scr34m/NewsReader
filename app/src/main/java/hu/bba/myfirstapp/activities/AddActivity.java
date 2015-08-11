@@ -2,13 +2,15 @@ package hu.bba.myfirstapp.activities;
 
 import android.app.Activity;
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -32,13 +34,14 @@ import hu.bba.myfirstapp.models.ScrollViewExt;
 
 public class AddActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, ScrollViewListener {
 
+    private static final String TAG = AddActivity.class.getSimpleName();
     private static final int TAKE_PICTURE = 1;
+
     private static Toolbar toolbar;
     private static Uri imageUri;
     private static Button addDate;
     private static TextView dateTextView;
     private static ScrollViewExt scroll;
-    private static final String TAG = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,14 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                 dpd.show(getFragmentManager(), "Datepickerdialog");
             }
         });
+
+        toolbar.setNavigationIcon(ResourcesCompat.getDrawable(getResources(),R.drawable.ic_arrow_back,null));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void takePhoto(View view) {
@@ -79,6 +90,11 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                 Uri.fromFile(photo));
         imageUri = Uri.fromFile(photo);
         startActivityForResult(intent, TAKE_PICTURE);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override
@@ -124,11 +140,17 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
             SnackbarManager.show(
                     Snackbar.with(getApplicationContext())
                             .text(String.format(getString(R.string.save_success_text)))
+                            .textColor(Color.WHITE)
+                            .actionColor(Color.WHITE)
+                            .color(getResources().getColor(R.color.toolbar_primary))
+                            .duration(Snackbar.SnackbarDuration.LENGTH_INDEFINITE)
+                            .swipeToDismiss(false)
                             .actionLabel(String.format(getString(R.string.save_button)))
+                            .actionLabelTypeface(Typeface.DEFAULT_BOLD)
                             .actionListener(new ActionClickListener() {
                                 @Override
                                 public void onActionClicked(Snackbar snackbar) {
-                                    Log.d(TAG, String.format(getString(R.string.save_success_text_onclick)));
+                                    Snackbar.with(getApplicationContext()).text(String.format(getString(R.string.save_success_text_onclick)));
                                 }
                             })
                     , this);
