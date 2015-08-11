@@ -136,11 +136,4 @@ public class MainActivity extends AppCompatActivity {
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnected();
     }
-
-    public void openDialog() {
-        final Dialog dialog = new Dialog(activityContext);
-        dialog.setContentView(R.layout.internet_dialog_layout);
-        dialog.setTitle(R.string.internet_dialog);
-        dialog.show();
-    }
 }

@@ -107,6 +107,8 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                     getContentResolver().notifyChange(selectedImage, null);
                     ImageView imageView = (ImageView) findViewById(R.id.add_image);
                     ContentResolver cr = getContentResolver();
+
+                    // TODO Make it with Picasso
                     Bitmap bitmap;
                     try {
                         bitmap = android.provider.MediaStore.Images.Media
