@@ -3,7 +3,6 @@ package hu.bba.myfirstapp.activities;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -22,7 +21,6 @@ import android.widget.Toast;
 
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.SnackbarManager;
-import com.nispok.snackbar.listeners.ActionClickListener;
 import com.squareup.picasso.Picasso;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
@@ -31,7 +29,6 @@ import java.util.Calendar;
 
 import hu.bba.myfirstapp.R;
 import hu.bba.myfirstapp.interfaces.ScrollViewListener;
-import hu.bba.myfirstapp.models.Content;
 import hu.bba.myfirstapp.models.ScrollViewExt;
 
 public class AddActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, ScrollViewListener {
@@ -44,7 +41,6 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     private static Button addDate;
     private static TextView dateTextView;
     private static ScrollViewExt scroll;
-    private Content content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +59,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         scroll = (ScrollViewExt) findViewById(R.id.add_scrollview);
         scroll.setScrollViewListener(this);
 
-        addDate.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
+        addDate.setOnClickListener(v ->  {
                 Calendar now = Calendar.getInstance();
                 DatePickerDialog dpd = DatePickerDialog.newInstance(
                         AddActivity.this,
@@ -74,16 +68,11 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                         now.get(Calendar.DAY_OF_MONTH)
                 );
                 dpd.show(getFragmentManager(), "Datepickerdialog");
-            }
         });
 
         toolbar.setNavigationIcon(ResourcesCompat.getDrawable(getResources(),R.drawable.ic_arrow_back,null));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+
+        toolbar.setNavigationOnClickListener(v ->  onBackPressed());
     }
 
     public void takePhoto(View view) {
@@ -150,11 +139,8 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                             .swipeToDismiss(false)
                             .actionLabel(String.format(getString(R.string.save_button)))
                             .actionLabelTypeface(Typeface.DEFAULT_BOLD)
-                            .actionListener(new ActionClickListener() {
-                                @Override
-                                public void onActionClicked(Snackbar snackbar) {
+                            .actionListener(snackbar ->  {
                                     Snackbar.with(getApplicationContext()).text(String.format(getString(R.string.save_success_text_onclick)));
-                                }
                             })
                     , this);
         }

@@ -1,6 +1,5 @@
 package hu.bba.myfirstapp.activities;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -92,14 +90,11 @@ public class MainActivity extends AppCompatActivity {
             adapter = new CustomLayoutAdapter();
             myListView.setAdapter(adapter);
 
-            myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            myListView.setOnItemClickListener((parent, view, position, id) ->  {
                     Intent toDetailsIntent = new Intent(MainActivity.this, DetailsActivity.class);
                     toDetailsIntent.putExtra("Content", content);
                     toDetailsIntent.putExtra("Position", position);
                     startActivity(toDetailsIntent);
-                }
             });
         }
         else {
