@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.SnackbarManager;
 import com.nispok.snackbar.listeners.ActionClickListener;
+import com.squareup.picasso.Picasso;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.io.File;
@@ -30,6 +31,7 @@ import java.util.Calendar;
 
 import hu.bba.myfirstapp.R;
 import hu.bba.myfirstapp.interfaces.ScrollViewListener;
+import hu.bba.myfirstapp.models.Content;
 import hu.bba.myfirstapp.models.ScrollViewExt;
 
 public class AddActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, ScrollViewListener {
@@ -42,6 +44,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     private static Button addDate;
     private static TextView dateTextView;
     private static ScrollViewExt scroll;
+    private Content content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,17 +109,15 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                     Uri selectedImage = imageUri;
                     getContentResolver().notifyChange(selectedImage, null);
                     ImageView imageView = (ImageView) findViewById(R.id.add_image);
-                    ContentResolver cr = getContentResolver();
+                    ContentResolver content = getContentResolver();
 
-                    // TODO Make it with Picasso
-                    Bitmap bitmap;
                     try {
-                        bitmap = android.provider.MediaStore.Images.Media
-                                .getBitmap(cr, selectedImage);
-
-                        imageView.setImageBitmap(bitmap);
-                        Toast.makeText(this, selectedImage.toString(),
-                                Toast.LENGTH_LONG).show();
+                        Picasso.with(this)
+                                .load(selectedImage)
+                                .resize(200, 200)
+                                .placeholder(R.drawable.placeholder)
+                                .error(R.drawable.placeholder_err)
+                                .into(imageView);
                     } catch (Exception e) {
                         Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
                                 .show();
