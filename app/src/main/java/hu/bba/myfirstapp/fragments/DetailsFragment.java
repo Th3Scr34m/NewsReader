@@ -19,10 +19,14 @@ import hu.bba.myfirstapp.models.Content;
 public class DetailsFragment extends Fragment {
 
     private static final String ARG_NEWS = "newsParam";
-    @Bind(R.id.description)
-    TextView description;
     @Bind(R.id.image)
     ImageView image;
+    @Bind(R.id.date)
+    TextView date;
+    @Bind(R.id.description)
+    TextView description;
+    @Bind(R.id.caption)
+    TextView caption;
 
     private Content content;
 
@@ -52,6 +56,8 @@ public class DetailsFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         description.setText(content.getFormattedContent());
+        date.setText(content.getFormattedDate());
+        caption.setText(content.getFormattedCaption());
         Picasso.with(getActivity())
                 .load(content.getFormattedUrl())
                 .placeholder(R.drawable.placeholder)

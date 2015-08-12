@@ -1,7 +1,6 @@
 package hu.bba.myfirstapp.activities;
 
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -35,7 +34,6 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
 
     private static final String TAG = AddActivity.class.getSimpleName();
     private static final int TAKE_PICTURE = 1;
-
     private static Toolbar toolbar;
     private static Uri imageUri;
     private static Button addDate;
@@ -59,20 +57,19 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         scroll = (ScrollViewExt) findViewById(R.id.add_scrollview);
         scroll.setScrollViewListener(this);
 
-        addDate.setOnClickListener(v ->  {
-                Calendar now = Calendar.getInstance();
-                DatePickerDialog dpd = DatePickerDialog.newInstance(
-                        AddActivity.this,
-                        now.get(Calendar.YEAR),
-                        now.get(Calendar.MONTH),
-                        now.get(Calendar.DAY_OF_MONTH)
-                );
-                dpd.show(getFragmentManager(), "Datepickerdialog");
+        addDate.setOnClickListener(v -> {
+            Calendar now = Calendar.getInstance();
+            DatePickerDialog dpd = DatePickerDialog.newInstance(
+                    AddActivity.this,
+                    now.get(Calendar.YEAR),
+                    now.get(Calendar.MONTH),
+                    now.get(Calendar.DAY_OF_MONTH)
+            );
+            dpd.show(getFragmentManager(), "Datepickerdialog");
         });
 
         toolbar.setNavigationIcon(ResourcesCompat.getDrawable(getResources(),R.drawable.ic_arrow_back,null));
-
-        toolbar.setNavigationOnClickListener(v ->  onBackPressed());
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 
     public void takePhoto(View view) {
@@ -98,7 +95,6 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                     Uri selectedImage = imageUri;
                     getContentResolver().notifyChange(selectedImage, null);
                     ImageView imageView = (ImageView) findViewById(R.id.add_image);
-                    ContentResolver content = getContentResolver();
 
                     try {
                         Picasso.with(this)

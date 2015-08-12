@@ -51,6 +51,12 @@ public class Content implements Serializable {
     @SerializedName("tbUrl")
     public String thumbnailUrl;
 
+    @SerializedName("caption")
+    public String formattedCaption;
+
+    @SerializedName("date")
+    public String formattedDate;
+
     Content() {
     }
 
@@ -58,7 +64,7 @@ public class Content implements Serializable {
                    int imageThumbnailHeight, String searchResult, String imageId,
                    String formattedTitle, String unformattedTitle, String formattedContent,
                    String unformattedContent, String formattedUrl, String unformattedUrl,
-                   String originalContextUrl, String visibleUrl, String thumbnailUrl) {
+                   String originalContextUrl, String visibleUrl, String thumbnailUrl, String formattedCaption, String formattedDate) {
         this.imageWidth = imageWidth;
         this.imageHeight = imageHeight;
         this.imageThumbnailWidth = imageThumbnailWidth;
@@ -74,6 +80,8 @@ public class Content implements Serializable {
         this.originalContextUrl = originalContextUrl;
         this.visibleUrl = visibleUrl;
         this.thumbnailUrl = thumbnailUrl;
+        this.formattedCaption = formattedCaption;
+        this.formattedDate = formattedDate;
     }
 
     public int getImageWidth() {
@@ -194,5 +202,21 @@ public class Content implements Serializable {
 
     public void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
+    }
+
+    public String getFormattedCaption() {
+        return formattedCaption;
+    }
+
+    public void setFormattedCaption(String formattedCaption) {
+        this.formattedCaption = formattedCaption;
+    }
+
+    public String getFormattedDate() {
+        return formattedDate;
+    }
+
+    public void setFormattedDate(String formattedDate) {
+        this.formattedDate = formattedDate;
     }
 }

@@ -35,9 +35,11 @@
         <dimen name="tab_max_width">100dp</dimen>
     <!-- Fragment Details -->
         <dimen name="fragment_text_size">12dp</dimen>
+    <dimen name="fragment_caption_text_size">6dp</dimen>
+    <dimen name="fragment_date_text_size">9dp</dimen>
         <dimen name="fragment_image_width">250dp</dimen>
         <dimen name="fragment_image_height">250dp</dimen>
         <dimen name="fragment_margin_top">3dp</dimen>
-        <dimen name="fragment_margin_bottom">12dp</dimen>
+    <dimen name="fragment_margin_bottom">6dp</dimen>
         <dimen name="fragment_padding">15dp</dimen>
 </resources>
