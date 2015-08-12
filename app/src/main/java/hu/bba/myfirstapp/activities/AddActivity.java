@@ -131,18 +131,15 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         if (diff == 0) {
             SnackbarManager.show(
                     Snackbar.with(getApplicationContext())
-                            .text(String.format(getString(R.string.save_success_text)))
+                            .text(getString(R.string.save_success_text))
                             .textColor(Color.WHITE)
                             .actionColor(Color.WHITE)
                             .color(getResources().getColor(R.color.toolbar_primary))
                             .duration(Snackbar.SnackbarDuration.LENGTH_INDEFINITE)
                             .swipeToDismiss(false)
-                            .actionLabel(String.format(getString(R.string.save_button)))
+                            .actionLabel(getString(R.string.save_button))
                             .actionLabelTypeface(Typeface.DEFAULT_BOLD)
-                            .actionListener(snackbar ->  {
-                                    Snackbar.with(getApplicationContext()).text(String.format(getString(R.string.save_success_text_onclick)));
-                            })
-                    , this);
+                            .actionListener(snackbar -> Snackbar.with(getApplicationContext()).text(getString(R.string.save_success_text_onclick))), this);
         }
         else {
             SnackbarManager.dismiss();

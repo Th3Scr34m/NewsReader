@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -18,8 +18,8 @@ import com.melnykov.fab.FloatingActionButton;
 import java.util.ArrayList;
 
 import butterknife.Bind;
-import butterknife.OnClick;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import hu.bba.myfirstapp.R;
 import hu.bba.myfirstapp.adapters.CustomLayoutAdapter;
 import hu.bba.myfirstapp.fragments.AlertDialogFragment;
@@ -38,11 +38,9 @@ public class MainActivity extends AppCompatActivity {
     private static CustomLayoutAdapter adapter;
     private static int duration = Toast.LENGTH_LONG;
     private static String TAG = MainActivity.class.getSimpleName();
-
+    final Context activityContext = this;
     @Bind(R.id.main_toolbar)
     protected Toolbar toolbar;
-
-    final Context activityContext = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     .create();
 
             RestAdapter restAdapter = new RestAdapter.Builder()
-                    .setEndpoint(String.format(getString(R.string.api_endpoint)))
+                    .setEndpoint(getString(R.string.api_endpoint))
                     .setConverter(new GsonConverter(gson))
                     .build();
 
