@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,9 +27,12 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import java.io.File;
 import java.util.Calendar;
 
+import butterknife.Bind;
 import hu.bba.myfirstapp.R;
 import hu.bba.myfirstapp.interfaces.ScrollViewListener;
+import hu.bba.myfirstapp.models.AddObject;
 import hu.bba.myfirstapp.models.ScrollViewExt;
+import io.realm.Realm;
 
 public class AddActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, ScrollViewListener {
 
@@ -39,6 +43,19 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     private static Button addDate;
     private static TextView dateTextView;
     private static ScrollViewExt scroll;
+
+    @Bind(R.id.add_title)
+    EditText editTextTitle;
+    @Bind(R.id.add_desc)
+    EditText editTextDesc;
+    @Bind(R.id.add_date_text_view)
+    TextView textViewDate;
+    @Bind(R.id.add_image)
+    ImageView imageViewImage;
+    @Bind(R.id.add_caption)
+    EditText editTextCaption;
+    @Bind(R.id.add_email)
+    EditText editTextEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,5 +157,19 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         else {
             SnackbarManager.dismiss();
         }
+    }
+
+    public void saveToFile() {
+        Realm realm = Realm.getInstance(this);
+
+        realm.beginTransaction();
+        AddObject addObject = realm.createObject(AddObject.class);
+//            addObject.setRealmTitle(toString(editTextTitle.toString()));
+//            addObject.setRealmDesc(toString(editTextDesc.toString()));
+//            addObject.setRealmDate(toString(textViewDate.toString()));
+//            addObject.setRealmImageUrl(toString());
+//            addObject.setRealmCaption(toString(editTextCaption.toString()));
+//            addObject.setRealmEmail(toString(editTextEmail.toString()));
+        realm.commitTransaction();
     }
 }

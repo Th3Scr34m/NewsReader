@@ -21,10 +21,10 @@
         <dimen name="custom_textbox_width">255dp</dimen>
         <dimen name="custom_textbox_height_title">25dp</dimen>
     <dimen name="custom_textbox_height_link">15dp</dimen>
-    <dimen name="custom_textbox_height_desc">50dp</dimen>
+    <dimen name="custom_textbox_height_desc">45dp</dimen>
         <dimen name="custom_textbox_margin">2dp</dimen>
         <dimen name="custom_textbox_margin_c">6dp</dimen>
-        <dimen name="custom_textbox_text_size_title">6pt</dimen>
+    <dimen name="custom_textbox_text_size_title">8pt</dimen>
         <dimen name="custom_textbox_text_size_desc">5pt</dimen>
         <dimen name="custom_textbox_text_size_link">4pt</dimen>
         <dimen name="custom_layout_image_width">100dp</dimen>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Scolvo Test Application</string>
+    <string name="app_name">sNews</string>
     <string name="img">Image</string>
     <string name="title">Please add here this news title.</string>
     <string name="news_desc">Please write here this news description.</string>
