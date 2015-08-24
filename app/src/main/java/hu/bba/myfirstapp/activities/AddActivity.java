@@ -91,7 +91,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
 
     public void takePhoto(View view) {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        File photo = new File(Environment.getExternalStorageDirectory(), "image.jpg");
+        File photo = new File(Environment.getExternalStorageDirectory(), "img_" + System.currentTimeMillis() + ".jpg");
         intent.putExtra(MediaStore.EXTRA_OUTPUT,
                 Uri.fromFile(photo));
         imageUri = Uri.fromFile(photo);
@@ -164,12 +164,12 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
 
         realm.beginTransaction();
         AddObject addObject = realm.createObject(AddObject.class);
-//            addObject.setRealmTitle(toString(editTextTitle.toString()));
-//            addObject.setRealmDesc(toString(editTextDesc.toString()));
-//            addObject.setRealmDate(toString(textViewDate.toString()));
-//            addObject.setRealmImageUrl(toString());
-//            addObject.setRealmCaption(toString(editTextCaption.toString()));
-//            addObject.setRealmEmail(toString(editTextEmail.toString()));
+        addObject.setRealmTitle(editTextTitle.toString());
+        addObject.setRealmDesc(editTextDesc.toString());
+        addObject.setRealmDate(textViewDate.toString());
+        addObject.setRealmImageUrl(toString());
+        addObject.setRealmCaption(editTextCaption.toString());
+        addObject.setRealmEmail(editTextEmail.toString());
         realm.commitTransaction();
     }
 }
