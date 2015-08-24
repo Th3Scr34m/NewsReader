@@ -1,5 +1,6 @@
 package hu.bba.myfirstapp.adapters;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,7 +80,7 @@ public class CustomLayoutAdapter extends BaseAdapter {
 
             holder.title.setText(content.getFormattedTitle());
             holder.link.setText(content.getVisibleUrl());
-            holder.desc.setText(content.getFormattedContent());
+            holder.desc.setText(Html.fromHtml(content.getFormattedContent()));
 
             Picasso.with(parent.getContext())
                     .load(content.getThumbnailUrl())

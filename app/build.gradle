@@ -60,4 +60,5 @@ dependencies {
     compile 'com.nispok:snackbar:2.11.+'
     compile 'io.reactivex:rxjava:1.0.8'
     compile 'io.reactivex:rxandroid:0.24.0'
+    compile 'io.realm:realm-android:0.82.1'
 }

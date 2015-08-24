@@ -20,8 +20,8 @@
         <dimen name="custom_layout_padding">5dp</dimen>
         <dimen name="custom_textbox_width">255dp</dimen>
         <dimen name="custom_textbox_height_title">25dp</dimen>
-        <dimen name="custom_textbox_height_link">25dp</dimen>
-        <dimen name="custom_textbox_height_desc">40dp</dimen>
+    <dimen name="custom_textbox_height_link">15dp</dimen>
+    <dimen name="custom_textbox_height_desc">50dp</dimen>
         <dimen name="custom_textbox_margin">2dp</dimen>
         <dimen name="custom_textbox_margin_c">6dp</dimen>
         <dimen name="custom_textbox_text_size_title">6pt</dimen>

@@ -3,6 +3,7 @@ package hu.bba.myfirstapp.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +56,7 @@ public class DetailsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_details_layout, container, false);
         ButterKnife.bind(this, view);
 
-        description.setText(content.getFormattedContent());
+        description.setText(Html.fromHtml(content.getFormattedContent()));
         date.setText(content.getFormattedDate());
         caption.setText(content.getFormattedCaption());
         Picasso.with(getActivity())
