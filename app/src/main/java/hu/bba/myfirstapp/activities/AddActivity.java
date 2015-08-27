@@ -11,6 +11,7 @@ import android.provider.MediaStore;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,7 @@ import java.io.File;
 import java.util.Calendar;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import hu.bba.myfirstapp.R;
 import hu.bba.myfirstapp.interfaces.ScrollViewListener;
 import hu.bba.myfirstapp.models.AddObject;
@@ -43,6 +45,16 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     private static Button addDate;
     private static TextView dateTextView;
     private static ScrollViewExt scroll;
+
+    private String imagePath;
+
+    private String titleAdd;
+    private String descAdd;
+    private String dateAdd;
+    private String imageAdd;
+    private String captionAdd;
+    private String emailAdd;
+
 
     @Bind(R.id.add_title)
     EditText editTextTitle;
@@ -61,6 +73,8 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_layout);
+
+        ButterKnife.bind(this);
 
         toolbar = (Toolbar) findViewById(R.id.add_toolbar);
         toolbar.setTitle("Add Page");
@@ -90,8 +104,9 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     }
 
     public void takePhoto(View view) {
+        imagePath = "img_" + System.currentTimeMillis() + ".jpg";
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        File photo = new File(Environment.getExternalStorageDirectory(), "img_" + System.currentTimeMillis() + ".jpg");
+        File photo = new File(Environment.getExternalStorageDirectory(), imagePath);
         intent.putExtra(MediaStore.EXTRA_OUTPUT,
                 Uri.fromFile(photo));
         imageUri = Uri.fromFile(photo);
@@ -121,8 +136,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                                 .error(R.drawable.placeholder_err)
                                 .into(imageView);
                     } catch (Exception e) {
-                        Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
-                                .show();
+                        Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT).show();
                         Log.e("Camera", e.toString());
                     }
                 }
@@ -131,7 +145,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
 
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-        String date = "Picked date: " + " " + year + "." + (monthOfYear + 1) + "." + dayOfMonth + ".";
+        String date = year + "." + (monthOfYear + 1) + "." + dayOfMonth + ".";
         dateTextView = (TextView) findViewById(R.id.add_date_text_view);
         dateTextView.setText(date);
     }
@@ -152,24 +166,45 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                             .swipeToDismiss(false)
                             .actionLabel(getString(R.string.save_button))
                             .actionLabelTypeface(Typeface.DEFAULT_BOLD)
-                            .actionListener(snackbar -> Snackbar.with(getApplicationContext()).text(getString(R.string.save_success_text_onclick))), this);
+                            .actionListener(snackbar -> validateFields(
+                                    titleAdd = editTextTitle.getText().toString(),
+                                    descAdd = editTextDesc.getText().toString(),
+                                    dateAdd = textViewDate.getText().toString(),
+                                    imageAdd = imagePath,
+                                    captionAdd = editTextCaption.getText().toString(),
+                                    emailAdd = editTextEmail.getText().toString())), this);
         }
         else {
             SnackbarManager.dismiss();
         }
     }
 
-    public void saveToFile() {
+    public void validateFields(String titleAdd, String descAdd, String dateAdd, String imageAdd, String captionAdd, String emailAdd) {
+
+        if (TextUtils.isEmpty(titleAdd) || TextUtils.isEmpty(descAdd) || TextUtils.isEmpty(dateAdd) || TextUtils.isEmpty(captionAdd) || TextUtils.isEmpty(emailAdd)) {
+            SnackbarManager.show(
+                    Snackbar.with(this)
+                            .text(getText(R.string.fail_text))
+                            .actionLabel(R.string.fail_button)
+            );
+            Log.d("Validation fail", TAG);
+        } else {
+            saveToFile(titleAdd, descAdd, dateAdd, imageAdd, captionAdd, emailAdd);
+            Log.d("Validation success", TAG);
+        }
+    }
+
+    public void saveToFile(String titleAdd, String descAdd, String dateAdd, String imageAdd, String captionAdd, String emailAdd) {
         Realm realm = Realm.getInstance(this);
 
         realm.beginTransaction();
         AddObject addObject = realm.createObject(AddObject.class);
-        addObject.setRealmTitle(editTextTitle.toString());
-        addObject.setRealmDesc(editTextDesc.toString());
-        addObject.setRealmDate(textViewDate.toString());
-        addObject.setRealmImageUrl(toString());
-        addObject.setRealmCaption(editTextCaption.toString());
-        addObject.setRealmEmail(editTextEmail.toString());
+        addObject.setRealmTitle(titleAdd);
+        addObject.setRealmDesc(descAdd);
+        addObject.setRealmDate(dateAdd);
+        addObject.setRealmImageUrl(imageAdd);
+        addObject.setRealmCaption(captionAdd);
+        addObject.setRealmEmail(emailAdd);
         realm.commitTransaction();
     }
 }

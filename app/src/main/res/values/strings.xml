@@ -11,6 +11,8 @@
     <string name="internet_connection_unavailable">Internet connection is unavailable</string>
     <string name="api_endpoint">http://focusoptika.eu/focusftp/</string>
     <string name="save_button">Save</string>
+    <string name="fail_button">OK</string>
+    <string name="fail_text">Missing fields</string>
     <string name="save_success_text">Tap the button to</string>
     <string name="save_success_text_onclick">Item saved</string>
     <string name="internet_dialog">Attention</string>
