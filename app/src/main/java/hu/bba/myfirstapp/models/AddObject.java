@@ -1,13 +1,17 @@
 package hu.bba.myfirstapp.models;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class AddObject extends RealmObject {
+
+
+    @PrimaryKey
+    private String realmImageUrl;
 
     private String realmTitle;
     private String realmDesc;
     private String realmDate;
-    private String realmImageUrl;
     private String realmCaption;
     private String realmEmail;
 

@@ -48,12 +48,12 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
 
     private String imagePath;
 
-    private String titleAdd;
-    private String descAdd;
-    private String dateAdd;
-    private String imageAdd;
-    private String captionAdd;
-    private String emailAdd;
+    private static String titleAdd;
+    private static String descAdd;
+    private static String dateAdd;
+    private static String imageAdd;
+    private static String captionAdd;
+    private static String emailAdd;
 
 
     @Bind(R.id.add_title)
