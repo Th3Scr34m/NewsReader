@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private static int duration = Toast.LENGTH_LONG;
     private static String TAG = MainActivity.class.getSimpleName();
     final Context activityContext = this;
+
     @Bind(R.id.main_toolbar)
     protected Toolbar toolbar;
 
@@ -96,18 +97,17 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         else {
-            AlertDialogFragment af = AlertDialogFragment.newInstance(R.string.internet_dialog, R.string.internet_dialog_text);
+            AlertDialogFragment alertDialog = AlertDialogFragment.newInstance(R.string.internet_dialog, R.string.internet_dialog_text);
 
-            af.setCallback(retry -> {
-                if(retry) {
+            alertDialog.setCallback(retry -> {
+                if (retry) {
                     recreate();
-                }
-                else {
+                } else {
                     finish();
                     System.exit(0);
                 }
             });
-            af.show(this.getSupportFragmentManager(), TAG);
+            alertDialog.show(this.getSupportFragmentManager(), TAG);
         }
     }
 
