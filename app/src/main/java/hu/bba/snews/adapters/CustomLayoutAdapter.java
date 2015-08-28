@@ -1,4 +1,4 @@
-package hu.bba.myfirstapp.adapters;
+package hu.bba.snews.adapters;
 
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -12,8 +12,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.models.Content;
+import hu.bba.snews.R;
+import hu.bba.snews.models.Content;
 
 public class CustomLayoutAdapter extends BaseAdapter {
 

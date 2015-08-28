@@ -1,4 +1,4 @@
-package hu.bba.myfirstapp.models;
+package hu.bba.snews.models;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;

@@ -1,4 +1,4 @@
-package hu.bba.myfirstapp.activities;
+package hu.bba.snews.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -30,10 +30,10 @@ import java.util.Calendar;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.interfaces.ScrollViewListener;
-import hu.bba.myfirstapp.models.AddObject;
-import hu.bba.myfirstapp.models.ScrollViewExt;
+import hu.bba.snews.R;
+import hu.bba.snews.interfaces.ScrollViewListener;
+import hu.bba.snews.models.AddObject;
+import hu.bba.snews.models.ScrollViewExt;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -46,16 +46,12 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     private static Button dateButton;
     private static TextView dateTextView;
     private static ScrollViewExt scroll;
-
-    private String imagePath;
-
     private static String addTitle;
     private static String addDesc;
     private static String addDate;
     private static String addImage;
     private static String addCaption;
     private static String addEmail;
-
     @Bind(R.id.add_title)
     EditText title;
     @Bind(R.id.add_desc)
@@ -68,6 +64,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     EditText caption;
     @Bind(R.id.add_email)
     EditText email;
+    private String imagePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,8 +177,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                                     addImage = imagePath,
                                     addCaption = caption.getText().toString(),
                                     addEmail = email.getText().toString())), this);
-        }
-        else {
+        } else {
             SnackbarManager.dismiss();
         }
     }

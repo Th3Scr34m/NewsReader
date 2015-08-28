@@ -1,4 +1,4 @@
-package hu.bba.myfirstapp.activities;
+package hu.bba.snews.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,12 +20,12 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.adapters.CustomLayoutAdapter;
-import hu.bba.myfirstapp.fragments.AlertDialogFragment;
-import hu.bba.myfirstapp.models.Content;
-import hu.bba.myfirstapp.models.ContentDataResponse;
-import hu.bba.myfirstapp.services.ApiServices;
+import hu.bba.snews.R;
+import hu.bba.snews.adapters.CustomLayoutAdapter;
+import hu.bba.snews.fragments.AlertDialogFragment;
+import hu.bba.snews.models.Content;
+import hu.bba.snews.models.ContentDataResponse;
+import hu.bba.snews.services.ApiServices;
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
@@ -89,14 +89,13 @@ public class MainActivity extends AppCompatActivity {
             adapter = new CustomLayoutAdapter();
             myListView.setAdapter(adapter);
 
-            myListView.setOnItemClickListener((parent, view, position, id) ->  {
-                    Intent toDetailsIntent = new Intent(MainActivity.this, DetailsActivity.class);
-                    toDetailsIntent.putExtra("Content", content);
-                    toDetailsIntent.putExtra("Position", position);
-                    startActivity(toDetailsIntent);
+            myListView.setOnItemClickListener((parent, view, position, id) -> {
+                Intent toDetailsIntent = new Intent(MainActivity.this, DetailsActivity.class);
+                toDetailsIntent.putExtra("Content", content);
+                toDetailsIntent.putExtra("Position", position);
+                startActivity(toDetailsIntent);
             });
-        }
-        else {
+        } else {
             AlertDialogFragment alertDialog = AlertDialogFragment.newInstance(R.string.internet_dialog, R.string.internet_dialog_text);
 
             alertDialog.setCallback(retry -> {

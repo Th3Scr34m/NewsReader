@@ -1,4 +1,4 @@
-package hu.bba.myfirstapp.activities;
+package hu.bba.snews.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +13,9 @@ import com.melnykov.fab.FloatingActionButton;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.adapters.RealmAdapter;
-import hu.bba.myfirstapp.models.AddObject;
+import hu.bba.snews.R;
+import hu.bba.snews.adapters.RealmAdapter;
+import hu.bba.snews.models.AddObject;
 import io.realm.Realm;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;

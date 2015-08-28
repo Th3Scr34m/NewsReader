@@ -1,4 +1,4 @@
-package hu.bba.myfirstapp.fragments;
+package hu.bba.snews.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
-import hu.bba.myfirstapp.R;
+import hu.bba.snews.R;
 import rx.functions.Action1;
 
 public class AlertDialogFragment extends DialogFragment {

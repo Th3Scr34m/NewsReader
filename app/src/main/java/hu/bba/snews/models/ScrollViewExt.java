@@ -1,13 +1,14 @@
-package hu.bba.myfirstapp.models;
+package hu.bba.snews.models;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ScrollView;
 
-import hu.bba.myfirstapp.interfaces.ScrollViewListener;
+import hu.bba.snews.interfaces.ScrollViewListener;
 
 public class ScrollViewExt extends ScrollView {
     private ScrollViewListener scrollViewListener = null;
+
     public ScrollViewExt(Context context) {
         super(context);
     }

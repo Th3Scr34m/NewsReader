@@ -1,11 +1,11 @@
-package hu.bba.myfirstapp.adapters;
+package hu.bba.snews.adapters;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 
-import hu.bba.myfirstapp.models.AddObject;
+import hu.bba.snews.models.AddObject;
 import io.realm.RealmBaseAdapter;
 import io.realm.RealmResults;
 

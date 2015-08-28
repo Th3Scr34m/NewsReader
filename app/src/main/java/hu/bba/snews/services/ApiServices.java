@@ -1,6 +1,6 @@
-package hu.bba.myfirstapp.services;
+package hu.bba.snews.services;
 
-import hu.bba.myfirstapp.models.ContentDataResponse;
+import hu.bba.snews.models.ContentDataResponse;
 import retrofit.Callback;
 import retrofit.http.GET;
 

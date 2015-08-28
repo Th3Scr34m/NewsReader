@@ -1,4 +1,4 @@
-package hu.bba.myfirstapp.activities;
+package hu.bba.snews.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -13,9 +13,9 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
-import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.fragments.DetailsFragment;
-import hu.bba.myfirstapp.models.Content;
+import hu.bba.snews.R;
+import hu.bba.snews.fragments.DetailsFragment;
+import hu.bba.snews.models.Content;
 
 public class DetailsActivity extends AppCompatActivity {
 

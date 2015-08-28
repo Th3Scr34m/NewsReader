@@ -1,4 +1,4 @@
-package hu.bba.myfirstapp;
+package hu.bba.snews;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,6 +1,6 @@
-package hu.bba.myfirstapp.interfaces;
+package hu.bba.snews.interfaces;
 
-import hu.bba.myfirstapp.models.ScrollViewExt;
+import hu.bba.snews.models.ScrollViewExt;
 
 public interface ScrollViewListener {
     void onScrollChanged(ScrollViewExt scrollView,

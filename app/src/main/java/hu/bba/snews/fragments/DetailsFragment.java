@@ -1,4 +1,4 @@
-package hu.bba.myfirstapp.fragments;
+package hu.bba.snews.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -14,8 +14,8 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import hu.bba.myfirstapp.R;
-import hu.bba.myfirstapp.models.Content;
+import hu.bba.snews.R;
+import hu.bba.snews.models.Content;
 
 public class DetailsFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package hu.bba.myfirstapp.models;
+package hu.bba.snews.models;
 
 import com.google.gson.annotations.SerializedName;
 
