@@ -35,6 +35,9 @@ import hu.bba.myfirstapp.interfaces.ScrollViewListener;
 import hu.bba.myfirstapp.models.AddObject;
 import hu.bba.myfirstapp.models.ScrollViewExt;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 public class AddActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, ScrollViewListener {
 
@@ -98,8 +101,14 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
             dpd.show(getFragmentManager(), "Datepickerdialog");
         });
 
-        toolbar.setNavigationIcon(ResourcesCompat.getDrawable(getResources(),R.drawable.ic_arrow_back,null));
+        toolbar.setNavigationIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_arrow_back, null));
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
+
+        RealmConfiguration configuration = new RealmConfiguration.Builder(this)
+                .name("local.realm")
+                .schemaVersion(42)
+                .build();
+        Realm.setDefaultConfiguration(configuration);
     }
 
     public void takePhoto(View view) {
@@ -186,21 +195,24 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                     Snackbar.with(this)
                             .text(getText(R.string.fail_text))
                             .actionLabel(R.string.fail_button)
+                            .actionLabelTypeface(Typeface.DEFAULT_BOLD)
                             .color(getResources().getColor(R.color.missing_fields))
             );
             Log.d("Validation fail", TAG);
         } else {
             saveToFile(titleAdd, descAdd, dateAdd, imageAdd, captionAdd, emailAdd);
             Log.d("Validation success", TAG);
+            super.onBackPressed();
         }
     }
 
     public void saveToFile(String titleAdd, String descAdd, String dateAdd, String imageAdd, String captionAdd, String emailAdd) {
 
-        Realm realm = Realm.getInstance(this);
+        Realm realm = Realm.getDefaultInstance();
 
         realm.beginTransaction();
         AddObject addObject = realm.createObject(AddObject.class);
+
         addObject.setRealmTitle(titleAdd);
         addObject.setRealmDesc(descAdd);
         addObject.setRealmDate(dateAdd);
@@ -208,5 +220,16 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         addObject.setRealmCaption(captionAdd);
         addObject.setRealmEmail(emailAdd);
         realm.commitTransaction();
+    }
+
+    public RealmResults<AddObject> readFromFile() {
+
+        Realm realm = Realm.getDefaultInstance();
+
+        RealmQuery<AddObject> query = realm.where(AddObject.class);
+        RealmResults<AddObject> results = query.findAll();
+
+        return results;
+
     }
 }
