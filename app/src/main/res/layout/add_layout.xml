@@ -75,11 +75,11 @@
 
             <ImageView
                 android:id="@+id/add_image"
-                android:layout_width="@dimen/add_a_image_size"
-                android:layout_height="@dimen/add_a_image_size"
+                android:layout_width="@dimen/add_a_image_size_w"
+                android:layout_height="@dimen/add_a_image_size_h"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="@dimen/add_a_margin_big"
-                android:layout_marginTop="@dimen/add_a_margin_bigger"
+                android:layout_marginTop="@dimen/add_a_margin_big"
                 android:onClick="takePhoto"
                 android:src="@drawable/photo_placeholder" />
 

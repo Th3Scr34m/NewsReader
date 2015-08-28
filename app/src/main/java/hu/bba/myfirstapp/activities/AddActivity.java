@@ -42,32 +42,31 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     private static final int TAKE_PICTURE = 1;
     private static Toolbar toolbar;
     private static Uri imageUri;
-    private static Button addDate;
+    private static Button dateButton;
     private static TextView dateTextView;
     private static ScrollViewExt scroll;
 
     private String imagePath;
 
-    private static String titleAdd;
-    private static String descAdd;
-    private static String dateAdd;
-    private static String imageAdd;
-    private static String captionAdd;
-    private static String emailAdd;
-
+    private static String addTitle;
+    private static String addDesc;
+    private static String addDate;
+    private static String addImage;
+    private static String addCaption;
+    private static String addEmail;
 
     @Bind(R.id.add_title)
-    EditText editTextTitle;
+    EditText title;
     @Bind(R.id.add_desc)
-    EditText editTextDesc;
+    EditText desc;
     @Bind(R.id.add_date_text_view)
-    TextView textViewDate;
+    TextView date;
     @Bind(R.id.add_image)
-    ImageView imageViewImage;
+    ImageView image;
     @Bind(R.id.add_caption)
-    EditText editTextCaption;
+    EditText caption;
     @Bind(R.id.add_email)
-    EditText editTextEmail;
+    EditText email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,12 +82,12 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        addDate = (Button) findViewById(R.id.add_date_button);
+        dateButton = (Button) findViewById(R.id.add_date_button);
 
         scroll = (ScrollViewExt) findViewById(R.id.add_scrollview);
         scroll.setScrollViewListener(this);
 
-        addDate.setOnClickListener(v -> {
+        dateButton.setOnClickListener(v -> {
             Calendar now = Calendar.getInstance();
             DatePickerDialog dpd = DatePickerDialog.newInstance(
                     AddActivity.this,
@@ -131,7 +130,8 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                     try {
                         Picasso.with(this)
                                 .load(selectedImage)
-                                .resize(200, 200)
+                                .resize(240, 240)
+                                .centerCrop()
                                 .placeholder(R.drawable.placeholder)
                                 .error(R.drawable.placeholder_err)
                                 .into(imageView);
@@ -167,12 +167,12 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                             .actionLabel(getString(R.string.save_button))
                             .actionLabelTypeface(Typeface.DEFAULT_BOLD)
                             .actionListener(snackbar -> validateFields(
-                                    titleAdd = editTextTitle.getText().toString(),
-                                    descAdd = editTextDesc.getText().toString(),
-                                    dateAdd = textViewDate.getText().toString(),
-                                    imageAdd = imagePath,
-                                    captionAdd = editTextCaption.getText().toString(),
-                                    emailAdd = editTextEmail.getText().toString())), this);
+                                    addTitle = title.getText().toString(),
+                                    addDesc = desc.getText().toString(),
+                                    addDate = date.getText().toString(),
+                                    addImage = imagePath,
+                                    addCaption = caption.getText().toString(),
+                                    addEmail = email.getText().toString())), this);
         }
         else {
             SnackbarManager.dismiss();
@@ -181,11 +181,12 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
 
     public void validateFields(String titleAdd, String descAdd, String dateAdd, String imageAdd, String captionAdd, String emailAdd) {
 
-        if (TextUtils.isEmpty(titleAdd) || TextUtils.isEmpty(descAdd) || TextUtils.isEmpty(dateAdd) || TextUtils.isEmpty(captionAdd) || TextUtils.isEmpty(emailAdd)) {
+        if (TextUtils.isEmpty(titleAdd) || TextUtils.isEmpty(descAdd) || TextUtils.isEmpty(dateAdd) || TextUtils.isEmpty(imageAdd) || TextUtils.isEmpty(captionAdd) || TextUtils.isEmpty(emailAdd)) {
             SnackbarManager.show(
                     Snackbar.with(this)
                             .text(getText(R.string.fail_text))
                             .actionLabel(R.string.fail_button)
+                            .color(getResources().getColor(R.color.missing_fields))
             );
             Log.d("Validation fail", TAG);
         } else {
@@ -195,6 +196,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     }
 
     public void saveToFile(String titleAdd, String descAdd, String dateAdd, String imageAdd, String captionAdd, String emailAdd) {
+
         Realm realm = Realm.getInstance(this);
 
         realm.beginTransaction();

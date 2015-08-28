@@ -44,8 +44,8 @@
             android:layout_width="@dimen/custom_textbox_width"
             android:layout_height="@dimen/custom_textbox_height_link"
             android:layout_margin="@dimen/custom_textbox_margin"
-            android:layout_marginLeft="@dimen/custom_textbox_margin_c"
-            android:layout_marginRight="@dimen/custom_textbox_margin_c"
+            android:layout_marginLeft="@dimen/custom_textbox_margin_c_l"
+            android:layout_marginRight="@dimen/custom_textbox_margin_c_r"
             android:textSize="@dimen/custom_textbox_text_size_link"
             android:paddingLeft="10dp" />
         <TextView
@@ -53,11 +53,12 @@
             android:layout_width="@dimen/custom_textbox_width"
             android:layout_height="@dimen/custom_textbox_height_desc"
             android:layout_margin="@dimen/custom_textbox_margin"
-            android:layout_marginLeft="@dimen/custom_textbox_margin_c"
-            android:layout_marginRight="@dimen/custom_textbox_margin_c"
+            android:layout_marginLeft="@dimen/custom_textbox_margin_c_l"
+            android:layout_marginRight="@dimen/custom_textbox_margin_c_r"
             android:textSize="@dimen/custom_textbox_text_size_desc"
             android:textStyle="bold"
-            android:paddingLeft="10dp" />
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
     </LinearLayout>
 </LinearLayout>
 

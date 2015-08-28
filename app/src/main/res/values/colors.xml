@@ -16,4 +16,5 @@
     <color name="mdtp_accent_color_dark">#F9A825</color>
     <color name="dialog_cancel">#F57F17</color>
     <color name="dialog_ok">#F57F17</color>
+    <color name="missing_fields">#D00121</color>
 </resources>

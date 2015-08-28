@@ -10,7 +10,8 @@
         <dimen name="add_a_margin_b">10dp</dimen>
         <dimen name="add_a_margin_big">15dp</dimen>
         <dimen name="add_a_margin_bigger">40dp</dimen>
-        <dimen name="add_a_image_size">200dp</dimen>
+    <dimen name="add_a_image_size_h">240dp</dimen>
+    <dimen name="add_a_image_size_w">240dp</dimen>
         <dimen name="add_date_button">150dp</dimen>
         <dimen name="activity_horizontal_margin">20dp</dimen>
         <dimen name="activity_vertical_margin">20dp</dimen>
@@ -21,9 +22,11 @@
         <dimen name="custom_textbox_width">255dp</dimen>
         <dimen name="custom_textbox_height_title">25dp</dimen>
     <dimen name="custom_textbox_height_link">15dp</dimen>
-    <dimen name="custom_textbox_height_desc">45dp</dimen>
+    <dimen name="custom_textbox_height_desc">40dp</dimen>
         <dimen name="custom_textbox_margin">2dp</dimen>
         <dimen name="custom_textbox_margin_c">6dp</dimen>
+    <dimen name="custom_textbox_margin_c_l">6dp</dimen>
+    <dimen name="custom_textbox_margin_c_r">12dp</dimen>
     <dimen name="custom_textbox_text_size_title">8pt</dimen>
         <dimen name="custom_textbox_text_size_desc">5pt</dimen>
         <dimen name="custom_textbox_text_size_link">4pt</dimen>
