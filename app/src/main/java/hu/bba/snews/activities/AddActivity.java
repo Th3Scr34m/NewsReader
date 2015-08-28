@@ -36,6 +36,8 @@ import hu.bba.snews.models.AddObject;
 import hu.bba.snews.models.ScrollViewExt;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 public class AddActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, ScrollViewListener {
 
@@ -214,5 +216,18 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         addObject.setRealmCaption(captionAdd);
         addObject.setRealmEmail(emailAdd);
         realm.commitTransaction();
+
+        readFromFile();
+    }
+
+    public RealmResults<AddObject> readFromFile() {
+
+        Realm realm = Realm.getDefaultInstance();
+
+        RealmQuery<AddObject> query = realm.where(AddObject.class);
+        RealmResults<AddObject> results = query.findAll();
+        results.sort("realmDate");
+
+        return results;
     }
 }
