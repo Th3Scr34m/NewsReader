@@ -109,7 +109,10 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     }
 
     public void takePhoto(View view) {
-        imagePath = "img_" + System.currentTimeMillis() + ".jpg";
+
+        createDirIfNotExists("/ScolvoNews/");
+
+        imagePath = "ScolvoNews/img_" + System.currentTimeMillis() + ".jpg";
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         File photo = new File(Environment.getExternalStorageDirectory(), imagePath);
         intent.putExtra(MediaStore.EXTRA_OUTPUT,
@@ -229,5 +232,20 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         results.sort("realmDate");
 
         return results;
+    }
+
+    public static boolean createDirIfNotExists(String path) {
+
+        boolean ret = true;
+
+        File file = new File(Environment.getExternalStorageDirectory(), path);
+        if (!file.exists()) {
+            if (!file.mkdirs()) {
+                Log.e("TravellerLog :: ", "Problem creating Image folder");
+                ret = false;
+            }
+        }
+
+        return ret;
     }
 }
