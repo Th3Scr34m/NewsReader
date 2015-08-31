@@ -66,7 +66,7 @@ public class CustomLayoutAdapter extends BaseAdapter {
 
             holder = new ViewHolder();
             holder.title = (TextView) vi.findViewById(R.id.title);
-            holder.link = (TextView) vi.findViewById(R.id.link);
+            holder.date = (TextView) vi.findViewById(R.id.date);
             holder.desc = (TextView) vi.findViewById(R.id.desc);
             holder.image = (ImageView) vi.findViewById(R.id.image);
 
@@ -79,7 +79,7 @@ public class CustomLayoutAdapter extends BaseAdapter {
         } else {
 
             holder.title.setText(content.getFormattedTitle());
-            holder.link.setText(content.getVisibleUrl());
+            holder.date.setText(content.getFormattedDate());
             holder.desc.setText(Html.fromHtml(content.getFormattedContent()));
 
             Picasso.with(parent.getContext())
@@ -93,7 +93,7 @@ public class CustomLayoutAdapter extends BaseAdapter {
 
     public static class ViewHolder {
         protected TextView title;
-        protected TextView link;
+        protected TextView date;
         protected TextView desc;
         protected ImageView image;
     }

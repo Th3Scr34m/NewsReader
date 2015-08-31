@@ -54,6 +54,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     private static String addImage;
     private static String addCaption;
     private static String addEmail;
+
     @Bind(R.id.add_title)
     EditText title;
     @Bind(R.id.add_desc)
@@ -106,6 +107,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                 .schemaVersion(42)
                 .build();
         Realm.setDefaultConfiguration(configuration);
+        readFromFile();
     }
 
     public void takePhoto(View view) {
@@ -219,8 +221,6 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         addObject.setRealmCaption(captionAdd);
         addObject.setRealmEmail(emailAdd);
         realm.commitTransaction();
-
-        readFromFile();
     }
 
     public RealmResults<AddObject> readFromFile() {
@@ -229,7 +229,6 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
 
         RealmQuery<AddObject> query = realm.where(AddObject.class);
         RealmResults<AddObject> results = query.findAll();
-        results.sort("realmDate");
 
         return results;
     }
