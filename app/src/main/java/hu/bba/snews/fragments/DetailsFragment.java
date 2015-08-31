@@ -28,7 +28,6 @@ public class DetailsFragment extends Fragment {
     TextView description;
     @Bind(R.id.caption)
     TextView caption;
-
     private Content content;
 
     public DetailsFragment() {

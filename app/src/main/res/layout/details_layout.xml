@@ -16,11 +16,11 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        app:tabMinWidth="@dimen/tab_min_width"
-        app:tabMaxWidth="@dimen/tab_max_width"
-        android:minHeight="@dimen/details_min_height"
         android:background="@color/tab_primary"
+        android:minHeight="@dimen/details_min_height"
+        android:textAlignment="center"
+        app:tabMaxWidth="@dimen/tab_max_width"
+        app:tabMinWidth="@dimen/tab_min_width"
         app:tabMode="scrollable" />
 
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
