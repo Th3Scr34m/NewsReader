@@ -1,48 +1,48 @@
 <resources>
     <!-- Main -->
-    <dimen name="divider_height">1dp</dimen>
-    <dimen name="main_fab_margin">16dp</dimen>
+        <dimen name="divider_height">1dp</dimen>
+        <dimen name="main_fab_margin">16dp</dimen>
     <!-- Add -->
-    <dimen name="add_a_padding_small">5dp</dimen>
-    <dimen name="add_a_padding_big">15dp</dimen>
-    <dimen name="add_a_margin_small">5dp</dimen>
-    <dimen name="add_a_margin_medium">10dp</dimen>
-    <dimen name="add_a_margin_b">10dp</dimen>
-    <dimen name="add_a_margin_big">15dp</dimen>
-    <dimen name="add_a_margin_bigger">40dp</dimen>
+        <dimen name="add_a_padding_small">5dp</dimen>
+        <dimen name="add_a_padding_big">15dp</dimen>
+        <dimen name="add_a_margin_small">5dp</dimen>
+        <dimen name="add_a_margin_medium">10dp</dimen>
+        <dimen name="add_a_margin_b">10dp</dimen>
+        <dimen name="add_a_margin_big">15dp</dimen>
+        <dimen name="add_a_margin_bigger">40dp</dimen>
     <dimen name="add_a_image_size_h">240dp</dimen>
     <dimen name="add_a_image_size_w">240dp</dimen>
-    <dimen name="add_date_button">150dp</dimen>
-    <dimen name="activity_horizontal_margin">20dp</dimen>
-    <dimen name="activity_vertical_margin">20dp</dimen>
+        <dimen name="add_date_button">150dp</dimen>
+        <dimen name="activity_horizontal_margin">20dp</dimen>
+        <dimen name="activity_vertical_margin">20dp</dimen>
     <!-- Custom -->
-    <dimen name="custom_layout_width">250dp</dimen>
-    <dimen name="custom_layout_height">120dp</dimen>
-    <dimen name="custom_layout_padding">5dp</dimen>
-    <dimen name="custom_textbox_width">255dp</dimen>
-    <dimen name="custom_textbox_height_title">25dp</dimen>
+        <dimen name="custom_layout_width">250dp</dimen>
+        <dimen name="custom_layout_height">120dp</dimen>
+        <dimen name="custom_layout_padding">5dp</dimen>
+        <dimen name="custom_textbox_width">255dp</dimen>
+        <dimen name="custom_textbox_height_title">25dp</dimen>
     <dimen name="custom_textbox_height_link">15dp</dimen>
     <dimen name="custom_textbox_height_desc">40dp</dimen>
-    <dimen name="custom_textbox_margin">2dp</dimen>
-    <dimen name="custom_textbox_margin_c">6dp</dimen>
+        <dimen name="custom_textbox_margin">2dp</dimen>
+        <dimen name="custom_textbox_margin_c">6dp</dimen>
     <dimen name="custom_textbox_margin_c_l">6dp</dimen>
     <dimen name="custom_textbox_margin_c_r">12dp</dimen>
     <dimen name="custom_textbox_text_size_title">8pt</dimen>
-    <dimen name="custom_textbox_text_size_desc">5pt</dimen>
-    <dimen name="custom_textbox_text_size_link">4pt</dimen>
-    <dimen name="custom_layout_image_width">100dp</dimen>
-    <dimen name="custom_layout_image_height">100dp</dimen>
+        <dimen name="custom_textbox_text_size_desc">5pt</dimen>
+        <dimen name="custom_textbox_text_size_link">4pt</dimen>
+        <dimen name="custom_layout_image_width">100dp</dimen>
+        <dimen name="custom_layout_image_height">100dp</dimen>
     <!-- Details -->
-    <dimen name="details_min_height">6dp</dimen>
-    <dimen name="tab_min_width">100dp</dimen>
-    <dimen name="tab_max_width">100dp</dimen>
+        <dimen name="details_min_height">6dp</dimen>
+        <dimen name="tab_min_width">100dp</dimen>
+        <dimen name="tab_max_width">100dp</dimen>
     <!-- Fragment Details -->
-    <dimen name="fragment_text_size">12dp</dimen>
+        <dimen name="fragment_text_size">12dp</dimen>
     <dimen name="fragment_caption_text_size">6dp</dimen>
     <dimen name="fragment_date_text_size">9dp</dimen>
-    <dimen name="fragment_image_width">250dp</dimen>
-    <dimen name="fragment_image_height">250dp</dimen>
-    <dimen name="fragment_margin_top">3dp</dimen>
+        <dimen name="fragment_image_width">250dp</dimen>
+        <dimen name="fragment_image_height">250dp</dimen>
+        <dimen name="fragment_margin_top">3dp</dimen>
     <dimen name="fragment_margin_bottom">6dp</dimen>
-    <dimen name="fragment_padding">15dp</dimen>
+        <dimen name="fragment_padding">15dp</dimen>
 </resources>

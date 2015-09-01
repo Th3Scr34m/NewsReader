@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="@dimen/custom_layout_height"
-    android:baselineAligned="false"
+    android:orientation="horizontal"
     android:gravity="center"
-    android:orientation="horizontal">
+    android:baselineAligned="false">
 
     <LinearLayout
         android:layout_width="100dp"
@@ -15,20 +15,19 @@
             android:id="@+id/image"
             android:layout_width="@dimen/custom_layout_image_width"
             android:layout_height="@dimen/custom_layout_image_height"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/custom_textbox_margin_c"
-            android:layout_marginTop="@dimen/custom_textbox_margin_c"
-            android:contentDescription="@string/img"
             android:padding="@dimen/custom_layout_padding"
-            android:scaleType="fitCenter" />
+            android:layout_marginTop="@dimen/custom_textbox_margin_c"
+            android:layout_marginBottom="@dimen/custom_textbox_margin_c"
+            android:contentDescription="@string/img"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="@dimen/custom_layout_width"
         android:layout_height="@dimen/custom_layout_height"
-        android:gravity="center_vertical|center|center_horizontal"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:gravity="center_vertical|center|center_horizontal">
         <TextView
             android:id="@+id/title"
             android:layout_width="@dimen/custom_textbox_width"
@@ -37,10 +36,9 @@
             android:layout_marginLeft="@dimen/custom_textbox_margin_c"
             android:layout_marginRight="@dimen/custom_textbox_margin_c"
             android:layout_marginTop="@dimen/custom_textbox_margin_c"
-            android:paddingLeft="10dp"
             android:textSize="@dimen/custom_textbox_text_size_title"
-            android:textStyle="italic" />
-
+            android:textStyle="italic"
+            android:paddingLeft="10dp" />
         <TextView
             android:id="@+id/date"
             android:layout_width="@dimen/custom_textbox_width"
@@ -48,9 +46,8 @@
             android:layout_margin="@dimen/custom_textbox_margin"
             android:layout_marginLeft="@dimen/custom_textbox_margin_c_l"
             android:layout_marginRight="@dimen/custom_textbox_margin_c_r"
-            android:paddingLeft="10dp"
-            android:textSize="@dimen/custom_textbox_text_size_link" />
-
+            android:textSize="@dimen/custom_textbox_text_size_link"
+            android:paddingLeft="10dp" />
         <TextView
             android:id="@+id/desc"
             android:layout_width="@dimen/custom_textbox_width"
@@ -58,10 +55,10 @@
             android:layout_margin="@dimen/custom_textbox_margin"
             android:layout_marginLeft="@dimen/custom_textbox_margin_c_l"
             android:layout_marginRight="@dimen/custom_textbox_margin_c_r"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             android:textSize="@dimen/custom_textbox_text_size_desc"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
     </LinearLayout>
 </LinearLayout>
 

@@ -34,8 +34,8 @@
                     android:id="@+id/add_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/add_a_margin_big"
                     android:layout_marginRight="@dimen/add_a_margin_big"
+                    android:layout_marginLeft="@dimen/add_a_margin_big"
                     android:hint="@string/title"
                     android:inputType="textShortMessage" />
             </android.support.design.widget.TextInputLayout>
@@ -58,9 +58,9 @@
                 android:id="@+id/add_date_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:layout_marginLeft="@dimen/add_a_margin_big"
                 android:layout_marginRight="@dimen/add_a_margin_big"
-                android:gravity="center"
                 android:padding="@dimen/add_a_padding_small"
                 android:text="@string/add_date_button" />
 
@@ -94,8 +94,8 @@
                     android:id="@+id/add_caption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/add_a_margin_big"
                     android:layout_marginRight="@dimen/add_a_margin_big"
+                    android:layout_marginLeft="@dimen/add_a_margin_big"
                     android:hint="@string/caption"
                     android:inputType="textShortMessage" />
             </android.support.design.widget.TextInputLayout>
@@ -112,16 +112,15 @@
                     android:id="@+id/add_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/add_a_margin_big"
                     android:layout_marginRight="@dimen/add_a_margin_big"
+                    android:layout_marginLeft="@dimen/add_a_margin_big"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="24dp" />
+                android:padding="24dp"/>
         </LinearLayout>
     </hu.bba.snews.models.ScrollViewExt>
 </LinearLayout>
