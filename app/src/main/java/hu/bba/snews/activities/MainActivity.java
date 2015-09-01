@@ -1,100 +1,73 @@
 package hu.bba.snews.activities;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import hu.bba.snews.R;
-import hu.bba.snews.adapters.CustomLayoutAdapter;
 import hu.bba.snews.fragments.AlertDialogFragment;
-import hu.bba.snews.models.Content;
-import hu.bba.snews.models.ContentDataResponse;
-import hu.bba.snews.services.ApiServices;
-import retrofit.Callback;
-import retrofit.RestAdapter;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-import retrofit.converter.GsonConverter;
+import hu.bba.snews.fragments.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static ArrayList<Content> content;
-    private static CustomLayoutAdapter adapter;
-    private static int duration = Toast.LENGTH_LONG;
     private static String TAG = MainActivity.class.getSimpleName();
-    final Context activityContext = this;
+    private ArrayList<Fragment> content;
 
     @Bind(R.id.main_toolbar)
-    protected Toolbar toolbar;
+    public Toolbar toolbar;
+    @Bind(R.id.main_tab_layout)
+    public TabLayout tabLayout;
+    @Bind(R.id.main_viewpager)
+    public ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
+        ButterKnife.bind(this);
+
+        toolbar.setTitle("Main Page");
+        setSupportActionBar(toolbar);
+
+        content = new ArrayList<>(Arrays.asList(MainFragment.newInstance(), MainFragment.newInstance()));
+
         if (isOnline()) {
-            ButterKnife.bind(this);
 
-            Gson gson = new GsonBuilder()
-                    .create();
+            viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
-            RestAdapter restAdapter = new RestAdapter.Builder()
-                    .setEndpoint(getString(R.string.api_endpoint))
-                    .setConverter(new GsonConverter(gson))
-                    .build();
-
-            ApiServices apiService = restAdapter.create(ApiServices.class);
-
-            content = new ArrayList<>();
-
-            Callback<ContentDataResponse> callback = new Callback<ContentDataResponse>() {
                 @Override
-                public void success(ContentDataResponse contentImageDataResponse, Response response) {
-                    content = contentImageDataResponse.getResultList().getImageList();
-                    adapter.initList(content);
+                public Fragment getItem(int position) {
+                    return content.get(position);
                 }
 
                 @Override
-                public void failure(RetrofitError retrofitError) {
-                    Toast toast = Toast.makeText(activityContext, R.string.main_feed_unavailable, duration);
-                    toast.show();
+                public int getCount() { return content.size(); }
+
+                @Override
+                public CharSequence getPageTitle(int position) {
+                    if (position == 0) {
+                        return "Online";
+                    } else {
+                        return "Local";
+                    }
                 }
-            };
-
-            apiService.getContentImageDataResponse(callback);
-
-            toolbar.setTitle("Main Page");
-            setSupportActionBar(toolbar);
-
-            ListView myListView = (ListView) findViewById(R.id.main_listView);
-            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            fab.attachToListView(myListView);
-
-            adapter = new CustomLayoutAdapter();
-            myListView.setAdapter(adapter);
-
-            myListView.setOnItemClickListener((parent, view, position, id) -> {
-                Intent toDetailsIntent = new Intent(MainActivity.this, DetailsActivity.class);
-                toDetailsIntent.putExtra("Content", content);
-                toDetailsIntent.putExtra("Position", position);
-                startActivity(toDetailsIntent);
             });
+
+            tabLayout.setupWithViewPager(viewPager);
+
         } else {
             AlertDialogFragment alertDialog = AlertDialogFragment.newInstance(R.string.internet_dialog, R.string.internet_dialog_text);
 
@@ -110,22 +83,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.fab)
-    public void onClick(View view) {
-        Intent toAddIntent = new Intent(MainActivity.this, AddActivity.class);
-        startActivity(toAddIntent);
+    public boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnected();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
-    }
-
-    public boolean isOnline() {
-        ConnectivityManager cm =
-                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        return netInfo != null && netInfo.isConnected();
     }
 }

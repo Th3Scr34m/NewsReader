@@ -10,7 +10,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/date"
+            android:id="@+id/fragment_details_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -19,7 +19,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/fragment_details_image"
             android:layout_width="@dimen/fragment_image_width"
             android:layout_height="@dimen/fragment_image_height"
             android:layout_gravity="center"
@@ -27,7 +27,7 @@
             android:layout_marginTop="@dimen/fragment_margin_top" />
 
         <TextView
-            android:id="@+id/caption"
+            android:id="@+id/fragment_details_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -36,7 +36,7 @@
             android:textStyle="italic" />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/fragment_details_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"

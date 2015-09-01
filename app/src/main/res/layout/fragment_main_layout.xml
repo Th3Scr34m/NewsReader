@@ -5,23 +5,15 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:background="@color/page_background"
-    tools:context=".RealmActivity">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/realm_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/toolbar_primary"
-            android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
-
-
         <ListView
-            android:id="@+id/realm_listView"
+            android:id="@+id/fragment_main_listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -32,7 +24,7 @@
     </LinearLayout>
 
     <com.melnykov.fab.FloatingActionButton
-        android:id="@+id/realm_fab"
+        android:id="@+id/fragment_main_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import hu.bba.snews.R;
 import hu.bba.snews.fragments.DetailsFragment;
@@ -20,33 +21,30 @@ import hu.bba.snews.models.Content;
 public class DetailsActivity extends AppCompatActivity {
 
     private static final String TAG = DetailsActivity.class.getSimpleName();
-
     private ArrayList<Content> content;
-    private Toolbar DetailsActionBarToolbar;
+
+    @Bind(R.id.details_toolbar)
+    Toolbar toolbar;
+    @Bind(R.id.details_tab_layout)
+    TabLayout tabLayout;
+    @Bind(R.id.details_viewpager)
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_layout);
 
+        ButterKnife.bind(this);
+
         int pos = getIntent().getIntExtra("Position", 0);
         content = (ArrayList<Content>) getIntent().getSerializableExtra("Content");
 
-        ButterKnife.bind(this);
-
-        DetailsActionBarToolbar = (Toolbar) findViewById(R.id.details_toolbar);
-        DetailsActionBarToolbar.setTitle("Details Page");
-        setSupportActionBar(DetailsActionBarToolbar);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.details_toolbar);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.details_viewpager);
-
-        if (toolbar != null) {
-            setSupportActionBar(toolbar);
-        }
+        toolbar.setTitle("Details Page");
+        setSupportActionBar(toolbar);
 
         viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+
             @Override
             public Fragment getItem(int position) {
                 return DetailsFragment.newInstance(content.get(position));

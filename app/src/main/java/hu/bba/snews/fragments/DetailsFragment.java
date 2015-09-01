@@ -20,19 +20,18 @@ import hu.bba.snews.models.Content;
 public class DetailsFragment extends Fragment {
 
     private static final String ARG_NEWS = "newsParam";
-    @Bind(R.id.image)
-    ImageView image;
-    @Bind(R.id.date)
-    TextView date;
-    @Bind(R.id.description)
-    TextView description;
-    @Bind(R.id.caption)
-    TextView caption;
-
     private Content content;
 
-    public DetailsFragment() {
-    }
+    @Bind(R.id.fragment_details_image)
+    ImageView image;
+    @Bind(R.id.fragment_details_date)
+    TextView date;
+    @Bind(R.id.fragment_details_description)
+    TextView description;
+    @Bind(R.id.fragment_details_caption)
+    TextView caption;
+
+    public DetailsFragment() {}
 
     public static DetailsFragment newInstance(Content content) {
         DetailsFragment fragment = new DetailsFragment();

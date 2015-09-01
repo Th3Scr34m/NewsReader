@@ -1,44 +1,33 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:layout_height="match_parent"
-    android:background="@color/page_background"
-    tools:context=".MainActivity">
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/main_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/toolbar_primary"
-            android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
-
-
-        <ListView
-            android:id="@+id/main_listView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="@color/listview_background"
-            android:divider="@color/listview_divider"
-            android:dividerHeight="@dimen/divider_height"></ListView>
-
-    </LinearLayout>
-
-    <com.melnykov.fab.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="@dimen/main_fab_margin"
-        android:src="@drawable/fab_icon"
-        fab:fab_colorNormal="@color/fab_primary"
-        fab:fab_colorPressed="@color/fab_primary_dark" />
+        android:background="@color/toolbar_primary"
+        android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
-</FrameLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/main_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/tab_primary"
+        android:minHeight="@dimen/details_min_height"
+        android:textAlignment="center"
+        app:tabMaxWidth="@dimen/tab_max_width"
+        app:tabMinWidth="@dimen/tab_min_width"
+        app:tabMode="scrollable" />
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/viewpager_primary" />
+
+</LinearLayout>
+
