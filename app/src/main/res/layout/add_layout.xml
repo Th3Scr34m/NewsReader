@@ -11,7 +11,7 @@
         android:background="@color/toolbar_primary"
         android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
 
-    <hu.bba.snews.models.ScrollViewExt
+    <bbabics.hu.newsreader.models.ScrollViewExt
         android:id="@+id/add_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -123,5 +123,5 @@
                 android:layout_height="wrap_content"
                 android:padding="24dp" />
         </LinearLayout>
-    </hu.bba.snews.models.ScrollViewExt>
+    </bbabics.hu.newsreader.models.ScrollViewExt>
 </LinearLayout>
