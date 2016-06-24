@@ -14,23 +14,23 @@ import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import bbabics.hu.newsreader.R;
 import bbabics.hu.newsreader.fragments.AlertDialogFragment;
 import bbabics.hu.newsreader.fragments.MainFragment;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class MainActivity extends AppCompatActivity {
 
     private static String TAG = MainActivity.class.getSimpleName();
-    private Unbinder unbinder;
     @BindView(R.id.main_toolbar)
     public Toolbar toolbar;
     @BindView(R.id.main_tab_layout)
     public TabLayout tabLayout;
     @BindView(R.id.main_viewpager)
     public ViewPager viewPager;
+    private Unbinder unbinder;
     private ArrayList<bbabics.hu.newsreader.fragments.MainFragment> content;
 
     @Override
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         content = new ArrayList<>(Arrays.asList(MainFragment.newInstance(), MainFragment.newInstance()));
 
-        if (isOnline()) {
+        if(isOnline()) {
 
             viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public CharSequence getPageTitle(int position) {
-                    if (position == 0) {
+                    if(position == 0) {
                         return "Online";
                     } else {
                         return "Local";
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             AlertDialogFragment alertDialog = AlertDialogFragment.newInstance(R.string.internet_dialog, R.string.internet_dialog_text);
 
             alertDialog.setCallback((retry) -> {
-                if (retry) {
+                if(retry) {
                     recreate();
                 } else {
                     finish();

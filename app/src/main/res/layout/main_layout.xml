@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/toolbar_primary"
-        android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
+        android:minHeight="?attr/actionBarSize" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/main_tab_layout"
@@ -23,11 +23,10 @@
         app:tabMinWidth="@dimen/tab_min_width"
         app:tabMode="scrollable" />
 
-    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v4.view.ViewPager
         android:id="@+id/main_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/viewpager_primary" />
-
 </LinearLayout>
 

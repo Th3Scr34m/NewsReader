@@ -28,13 +28,12 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import java.io.File;
 import java.util.Calendar;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import bbabics.hu.newsreader.R;
 import bbabics.hu.newsreader.interfaces.ScrollViewListener;
 import bbabics.hu.newsreader.models.AddObject;
 import bbabics.hu.newsreader.models.ScrollViewExt;
-
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmQuery;

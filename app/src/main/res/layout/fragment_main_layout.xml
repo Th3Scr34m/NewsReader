@@ -1,11 +1,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:background="@color/page_background"
-    tools:context=".MainActivity">
+    tools:context="bbabics.hu.newsreader.activities.MainActivity">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -19,8 +18,7 @@
             android:layout_gravity="center"
             android:background="@color/listview_background"
             android:divider="@color/listview_divider"
-            android:dividerHeight="@dimen/divider_height"></ListView>
-
+            android:dividerHeight="@dimen/divider_height" />
     </LinearLayout>
 
     <com.melnykov.fab.FloatingActionButton
@@ -32,5 +30,4 @@
         android:src="@drawable/fab_icon"
         fab:fab_colorNormal="@color/fab_primary"
         fab:fab_colorPressed="@color/fab_primary_dark" />
-
 </FrameLayout>
