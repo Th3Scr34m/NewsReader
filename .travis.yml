@@ -14,7 +14,7 @@ before_install:
 - chmod +x gradlew
 
 script:
-- "./gradlew clean build connectedAndroidTest -PdisablePreDex --stacktrace"
+- "./gradlew clean build connectedAndroidTest"
 
 before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
