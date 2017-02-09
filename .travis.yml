@@ -2,46 +2,47 @@ language: android
 jdk: oraclejdk8
 cache: false
 sudo: true
-
 env:
   global:
     - ANDROID_API_LEVEL=23
-    - ANDROID_BUILD_TOOLS_VERSION=24.0.0
+    - ANDROID_BUILD_TOOLS_VERSION=25.0.0
     - ANDROID_ABI=armeabi-v7a
     - ANDROID_TAG=google_apis
-    - ADB_INSTALL_TIMEOUT=20 # minutes (2 minutes by default - see #247)
-
-android:
-  components:
-    - platform-tools
-    - tools
-    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
-    - android-$ANDROID_API_LEVEL
-    # Google Play Services
-    - extra-google-google_play_services
-    # Support library
-    - extra-android-support
-    # Latest artifacts in local repository
-    - extra-google-m2repository
-    - extra-android-m2repository
-    # Specify at least one system image
-    - sys-img-armeabi-v7a-google_apis-$ANDROID_API_LEVEL
-
-# Emulator Management: Create, Start and Wait
-before_script:
-  - echo no | android create avd --force -n test -t "android-23" --abi $ANDROID_ABI --tag $ANDROID_TAG
-  - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 &
-
-script:
-  - android list target
-  - ./gradlew connectedAndroidTest
-
-before_install:
-  - chmod +x gradlew
-
-licenses:
-    - 'android-sdk-preview-license-.+'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
+    - ADB_INSTALL_TIMEOUT=20
+  android:
+    components:
+      - platform-tools
+      - tools
+      - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+      - android-$ANDROID_API_LEVEL
+      - extra-google-google_play_services
+      - extra-android-support
+      - extra-google-m2repository
+      - extra-android-m2repository
+      - sys-img-armeabi-v7a-google_apis-$ANDROID_API_LEVEL
+  before_script:
+    - echo no | android create avd --force -n test -t "android-23" --abi $ANDROID_ABI --tag $ANDROID_TAG
+    - emulator -avd test -no-skin -no-audio -no-window &
+    - android-wait-for-emulator
+    - adb shell input keyevent 82
+  script:
+    - android list target
+    - "./gradlew clean build connectedAndroidTest -PdisablePreDex --stacktrace"
+  before_install:
+    - chmod +x gradlew
+  licenses:
+    - android-sdk-preview-license-.+
+    - android-sdk-license-.+
+    - google-gdk-license-.+
+  deploy:
+    provider: releases
+    api_key:
+      secure: X1AzNMZKBXuDl/R34DQEjHuKG13HeQXwi9mffMRifQAjBCiMziiF0hPlTW201YYoVHQ/2vt2jjWThIomCTXlY/DLb5eINd09whSAsYdYjYdgx2l+5+NIU1pzFlp+2eRfTRNBUgUYUtJFfZgxFO/e1+sjMTkf/GxvTNkKARALjN8VaMPwOp0A7Ll50/uj1clRDehHPAhSvLbjSNl66GuDJxI2arAzO2sOQMb+nJUaaRqfF1FaKbmu4ASwcgDB4R+sAz3DGJ67BnJkK+5nhJw6HDSFZ3pCkhHHWjlhCed3WfAYWjJ30dYLtfLgur7bVGKZMO09lqiDhj+xEy8ZKkHrGTyqmZ5ud23F0DOi/F3LTs7Kb+c94IvkR77WdV+mBK5hkkk3gQtMTrDEZMNpQynvKeywlH8iZgih0t1RjU2bKi9nemtk89D+JwDk1vd72KksvDhwTvxSHT6b1c64VVdv8L2WKmUl56xbLaYfMDl9ZJ3oxWsFeQIrqJasDKsAwx7xY32TXh7PrUdL1iiQ3hmV5K3Ja5V+ia2/suHmWdqSJTdu3ueKWg2GvMr+hGxNTGQyYi4M/Gm2rFFowaqjsE1C+r2bFa08sIFvz+UkcUY2o2F/7XbT4KyETSpdHXBGxMgTmHzFxVrWHRo8VqZ9o93Yl4cok0r4odwu3aQM12BTVFA=
+    file: app/build/outputs/apk/app*release*.apk"
+    file_glob: "true"
+    skip_cleanup: true
+    on:
+      branch: master
+      repo: balintbabics/NewsReader
+  after_success:
+    - sh set_tags.sh
