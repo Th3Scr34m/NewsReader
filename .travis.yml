@@ -1,7 +1,7 @@
 language: android
 jdk: oraclejdk8
 cache: true
-sudo: true
+sudo: false
 
 env:
 global:
@@ -18,12 +18,11 @@ components:
 - android-$ANDROID_API_LEVEL
 - extra-google-google_play_services
 - extra-android-support
-- android-23
 #- extra-google-m2repository
 #- extra-android-m2repository
 
 script:
-- "./gradlew clean build connectedAndroidTest -PdisablePreDex --stacktrace"
+- ./gradlew connectedAndroidTest
 
 before_install:
 - chmod +x gradlew
