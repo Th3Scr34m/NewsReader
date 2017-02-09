@@ -1,7 +1,7 @@
 language: android
 jdk: oraclejdk8
-cache: true
-sudo: false
+cache: false
+sudo: true
 
 android:
 components:
@@ -19,16 +19,6 @@ script:
 
 before_install:
 - chmod +x gradlew
-
-before_cache:
-- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-
-cache:
-directories:
-- "$HOME/.m2"
-- "$HOME/.gradle"
-- "$HOME/.gradle/caches/"
-- "$HOME/.gradle/wrapper/"
 
 licenses:
 - 'android-sdk-preview-license-.+'
