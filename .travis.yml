@@ -31,9 +31,9 @@ env:
   before_install:
     - chmod +x gradlew
   licenses:
-    - android-sdk-preview-license-.+
-    - android-sdk-license-.+
-    - google-gdk-license-.+
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
   deploy:
     provider: releases
     api_key:
