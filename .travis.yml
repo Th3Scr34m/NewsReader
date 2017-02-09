@@ -4,24 +4,24 @@ cache: true
 sudo: false
 
 android:
-  components:
-	- platform-tools
-	- tools
-	- build-tools-24.0.0
-	- android-23
+components:
+- platform-tools
+- tools
+- build-tools-24.0.0
+- android-23
 
 before_install:
-	- chmod +x gradlew
+- chmod +x gradlew
 
 script:
-	- "./gradlew clean build connectedAndroidTest -PdisablePreDex --stacktrace"
+- "./gradlew clean build connectedAndroidTest -PdisablePreDex --stacktrace"
 
 before_cache:
-	- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 
 cache:
-  directories:
-  - "$HOME/.m2"
-  - "$HOME/.gradle"
-  - "$HOME/.gradle/caches/"
-  - "$HOME/.gradle/wrapper/"
+directories:
+- "$HOME/.m2"
+- "$HOME/.gradle"
+- "$HOME/.gradle/caches/"
+- "$HOME/.gradle/wrapper/"
