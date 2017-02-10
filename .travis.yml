@@ -4,23 +4,36 @@ cache: false
 sudo: true
 
 android:
- components:
-  - platform-tools
-  - tools
-  - build-tools-24.0.0
-  - android-23
-  - extra-google-google_play_services
-  - extra-android-support
-  - extra-google-m2repository
-  - extra-android-m2repository
+  components:
+    - platform-tools
+    - tools
+    - build-tools-24.0.0
+    - android-23
+    # Google Play Services
+    - extra-google-google_play_services
+    # Support library
+    - extra-android-support
+    # Latest artifacts in local repository
+    - extra-google-m2repository
+    - extra-android-m2repository
+    # Specify at least one system image
+    - sys-img-armeabi-v7a-google_apis-23
+
+# Emulator Management: Create, Start and Wait
+before_script:
+  - echo no | android create avd --force -n test -t "android-23" --abi armeabi-v7a --tag google_apis
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
 
 script:
- - ./gradlew connectedAndroidTest --stacktrace
+  - android list target
+  - ./gradlew connectedAndroidTest --stacktrace
 
 before_install:
- - chmod +x gradlew
+  - chmod +x gradlew
 
 licenses:
- - 'android-sdk-preview-license-.+'
- - 'android-sdk-license-.+'
- - 'google-gdk-license-.+'
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
