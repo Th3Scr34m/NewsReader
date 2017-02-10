@@ -4,23 +4,23 @@ cache: false
 sudo: true
 
 android:
-components:
-- platform-tools
-- tools
-- build-tools-24.0.0
-- android-23
-- extra-google-google_play_services
-- extra-android-support
-#- extra-google-m2repository
-#- extra-android-m2repository
+ components:
+  - platform-tools
+  - tools
+  - build-tools-24.0.0
+  - android-23
+  - extra-google-google_play_services
+  - extra-android-support
+  - extra-google-m2repository
+  - extra-android-m2repository
 
 script:
-- ./gradlew connectedAndroidTest
+ - ./gradlew connectedAndroidTest
 
 before_install:
-- chmod +x gradlew
+ - chmod +x gradlew
 
 licenses:
-- 'android-sdk-preview-license-.+'
-- 'android-sdk-license-.+'
-- 'google-gdk-license-.+'
+ - 'android-sdk-preview-license-.+'
+ - 'android-sdk-license-.+'
+ - 'google-gdk-license-.+'
