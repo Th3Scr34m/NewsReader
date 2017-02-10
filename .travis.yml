@@ -15,7 +15,7 @@ android:
   - extra-android-m2repository
 
 script:
- - ./gradlew connectedAndroidTest
+ - ./gradlew connectedAndroidTest --stacktrace
 
 before_install:
  - chmod +x gradlew
